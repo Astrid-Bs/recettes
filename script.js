@@ -109,4 +109,28 @@ document.addEventListener('DOMContentLoaded', function () {
       displayRecipes(window.allRecipes);
     }
   });
+
+  // Code pour le bouton de remontée en haut
+  const scrollToTopBtn = document.getElementById('scrollToTopBtn');
+
+  // S'assurer que le bouton est caché au début
+  scrollToTopBtn.style.display = "none"; // Le cacher par défaut
+
+  // Afficher ou masquer le bouton en fonction du défilement
+  window.onscroll = function () {
+    if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+      scrollToTopBtn.style.display = "block"; // Afficher après 200px de défilement
+    } else {
+      scrollToTopBtn.style.display = "none"; // Masquer si en haut
+    }
+  };
+
+  // Action de remontée au clic
+  scrollToTopBtn.addEventListener('click', function () {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth' // Défilement fluide vers le haut
+    });
+  });
+
 });
