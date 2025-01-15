@@ -1,0 +1,252 @@
+/* Réinitialisation des marges et paddings */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Police et mise en page générale */
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #f5f5f5;
+  color: #333;
+  max-width: 100%;
+}
+
+/* En-tête */
+header {
+  background-color: #333;
+  color: white;
+  padding: 20px 0;
+}
+
+header .container {
+  width: 80%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header h1 {
+  font-size: 30px;
+  font-weight: 600;
+  letter-spacing: 2px;
+}
+
+/* Barre de recherche moderne */
+.search-form {
+  display: flex;
+  align-items: center;
+  border-radius: 30px; /* Coins arrondis pour le form */
+  overflow: hidden; /* Masque les coins non arrondis */
+  width: 500px; /* Largeur du formulaire de recherche */
+}
+
+.search-form input {
+  border: none;
+  padding: 12px 20px;
+  width: 100%; /* Le champ de recherche prend 85% de la largeur */
+  font-size: 16px;
+  border-radius: 30px 0 0 30px; /* Coins arrondis à gauche */
+  outline: none;
+  transition: background-color 0.3s ease;
+}
+
+.search-form input:focus {
+  background-color: #fff8e1; /* Change la couleur de fond au focus */
+}
+
+.search-form button {
+  background-color: #ff6f61; /* Couleur du bouton */
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 0 30px 30px 0; /* Coins arrondis à droite */
+  transition: background-color 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.search-form button:hover {
+  background-color: #ff3d32; /* Changer la couleur au survol */
+}
+
+.search-form input::placeholder {
+  color: #aaa; /* Couleur du texte du placeholder */
+}
+
+.search-form button i {
+  margin-left: 10px;
+}
+
+/* Navigation */
+header nav ul {
+  list-style-type: none;
+  display: flex;
+}
+
+header nav ul li {
+  margin-left: 20px;
+}
+
+header nav ul li a {
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: color 0.3s;
+}
+
+header nav ul li a:hover {
+  color: #ff6f61;
+}
+
+/* Section Héro */
+#hero {
+  background-image: url('https://via.placeholder.com/1200x600'); /* Image de fond */
+  background-size: cover;
+  background-position: center;
+  color: #333;
+  padding: 60px 0;
+  text-align: center;
+}
+
+#hero h2 {
+  font-size: 40px;
+  font-weight: 700;
+}
+
+#hero p {
+  font-size: 18px;
+  margin-top: 10px;
+}
+
+#hero button {
+  background-color: #ff6f61;
+  color: white;
+  padding: 12px 20px;
+  font-size: 18px;
+  border: none;
+  border-radius: 30px;
+  margin-top: 20px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+#hero button:hover {
+  background-color: #333;
+}
+
+/* Section des Recettes */
+#recettes {
+  padding: 60px 0;
+  background-color: #fff;
+}
+
+#recettes h2 {
+  text-align: center;
+  font-size: 36px;
+  color: #ff3d32;
+  margin-bottom: 40px;
+}
+
+#recettes .container {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.recettes-list {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+.recette {
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  overflow: hidden;
+  width: 30%;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.recette img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.recette h3 {
+  font-size: 22px;
+  color: #333;
+  padding: 15px;
+}
+
+.recette p {
+  font-size: 14px;
+  color: #777;
+  padding: 0 15px;
+  margin-bottom: 20px;
+}
+
+.recette button {
+  background-color: #ff6f61;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  width: 100%;
+  cursor: pointer;
+  border-radius: 0 0 10px 10px;
+  transition: background-color 0.3s;
+}
+
+.recette button:hover {
+  background-color: #ff6f61;
+}
+
+.recette:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Footer */
+footer {
+  background-color: #333;
+  color: white;
+  padding: 200px 0;
+  text-align: center;
+}
+
+footer p {
+  font-size: 14px;
+}
+
+/* Media Query pour les petits écrans */
+@media (max-width: 768px) {
+  .recettes-list {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .recette {
+    width: 80%;
+  }
+
+  #hero h2 {
+    font-size: 30px;
+  }
+
+  #hero button {
+    font-size: 16px;
+  }
+
+  .search-form {
+    width: 100%; /* La barre de recherche devient plus large sur mobile */
+  }
+}
