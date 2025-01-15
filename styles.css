@@ -175,7 +175,8 @@ header nav ul li a:hover {
   display: flex;
   flex-direction: column;   /* Organiser les éléments verticalement */
   transition: transform 0.3s, box-shadow 0.3s;
-  height: 100%;             /* Assurer que la carte occupe toute la hauteur de l'espace disponible */
+  height: 400px; /* Fixe la hauteur pour toutes les recettes */
+  margin-bottom: 20px; /* Espacement entre les cartes */
 }
 
 /* Image de la recette */
@@ -190,6 +191,9 @@ header nav ul li a:hover {
   font-size: 22px;
   color: #333;
   padding: 15px;
+  height: 60px; /* Hauteur fixe pour les titres */
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 /* Description de la recette */
@@ -199,6 +203,27 @@ header nav ul li a:hover {
   padding: 0 15px;
   margin-bottom: 20px;
   flex-grow: 1;  /* Permet de pousser le bouton vers le bas si la description est longue */
+  height: 60px; /* Hauteur fixe pour la description */
+  display: none;  /* Masque la description par défaut */
+}
+
+/* Styling des étoiles pour les rendre plus modernes */
+.etoiles {
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+  margin-bottom: 10px;
+}
+
+.etoile {
+  font-size: 2rem;
+  color: #ccc;  /* Couleur par défaut pour les étoiles */
+  cursor: pointer;
+  transition: color 0.3s ease; /* Transition fluide pour l'effet hover */
+}
+
+.etoile.active {
+  color: #ff6f61;  /* Couleur dorée pour l'étoile active */
 }
 
 /* Bouton Voir la recette */
@@ -258,39 +283,4 @@ footer p {
   .search-form {
     width: 100%; /* La barre de recherche devient plus large sur mobile */
   }
-}
-
-
-/* Styling des étoiles pour les rendre plus modernes */
-.etoiles {
-  display: flex;
-  justify-content: center;
-  gap: 5px;
-  margin-bottom: 10px;
-}
-
-.etoile {
-  font-size: 2rem;
-  color: #ccc;  /* Couleur par défaut pour les étoiles */
-  cursor: pointer;
-  transition: color 0.3s ease; /* Transition fluide pour l'effet hover */
-}
-
-.etoile.active {
-  color: #ff6f61;  /* Couleur dorée pour l'étoile active */
-}
-
-button {
-  background-color: #ff6f61;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  cursor: pointer;
-  font-size: 1rem;
-  border-radius: 5px;
-  transition: background-color 0.3s;
-}
-
-button:hover {
-  background-color: #e04e3b;
 }
