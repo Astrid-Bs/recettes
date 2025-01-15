@@ -108,8 +108,6 @@ header nav ul li a:hover {
 
 /* Section Héro */
 #hero {
-  background-image: url('https://via.placeholder.com/1200x600'); /* Image de fond */
-  background-size: cover;
   background-position: center;
   color: #333;
   padding: 60px 0;
@@ -279,7 +277,7 @@ footer p {
 }
 
 .etoile.active {
-  color: #ffbc00;  /* Couleur dorée pour l'étoile active */
+  color: #ff6f61;  /* Couleur dorée pour l'étoile active */
 }
 
 button {

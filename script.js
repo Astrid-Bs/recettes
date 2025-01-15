@@ -52,9 +52,24 @@ document.addEventListener('DOMContentLoaded', function () {
         `;
 
         recipesContainer.appendChild(recipeElement);
+
         // Ajouter un gestionnaire d'événement pour chaque étoile
         const etoiles = recipeElement.querySelectorAll('.etoile');
         etoiles.forEach(etoile => {
+          etoile.addEventListener('mouseover', (event) => {
+            const note = event.target.dataset.note;
+            for (let i = 0; i < note; i++) {
+              etoiles[i].classList.add('active');
+            }
+          });
+
+          etoile.addEventListener('mouseout', (event) => {
+            // Supprimer la classe active lorsque l'utilisateur ne survole plus
+            etoiles.forEach(etoile => {
+              etoile.classList.remove('active');
+            });
+          });
+
           etoile.addEventListener('click', (event) => {
             const recetteId = event.target.dataset.recipeId;
             const note = event.target.dataset.note;
@@ -66,6 +81,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
             // Afficher un message de confirmation
             alert(`Merci pour votre avis ! Vous avez donné une note de ${note} étoiles.`);
+            // Après avoir cliqué, laisser les étoiles colorées selon la note donnée
+            for (let i = 0; i < note; i++) {
+              etoiles[i].classList.add('active');
+            }
           });
        });
       });
