@@ -17,6 +17,7 @@
         <input type="text" id="search-input" placeholder="Je cherche une recette..." aria-label="Rechercher des recettes">
         <button type="submit" id="search-btn">Rechercher</button>
       </form>
+
       <nav>
         <ul>
           <li><a href="index.html">Accueil</a></li>
@@ -25,6 +26,26 @@
           <li><a href="#contact">Contact</a></li>
         </ul>
       </nav>
+
+      <div class="mx-auto py-12 m-w-100 xl:max-w-6xl px-10 xl:px-0 lg:hidden mobile-menu flex justify-end pt-8 pb-14">
+        <!-- Menu Button -->
+        <div id="menu-toggle" class="menu-button hover:cursor-pointer overflow-hidden fixed">
+          <div class="menu-line bg-text-primary dark:bg-d-text-primary absolute"></div>
+          <div class="menu-line bg-text-primary dark:bg-d-text-primary absolute opacity-1"></div>
+          <div class="menu-line bg-text-primary dark:bg-d-text-primary absolute"></div>
+        </div>
+      </div>
+      
+      <!-- Drawer Menu -->
+      <div id="menu-drawer" class="mx-auto py-12 m-w-100 xl:max-w-6xl px-10 xl:px-0 menu-drawer bg-main-secondary dark:bg-d-main-secondary pt-16 overflow-y-auto h-full w-fit fixed top-0 right-0 transform translate-x-full transition-all duration-300">
+        <ul class="flex flex-col justify-end gap-y-8 items-end font-outfit font-light">
+          <li class="flex text-lg hover:text-special-secondary hover:dark:text-d-special-secondary transition duration-200 easy-in-out"><a href="index.html">Accueil</a></li>
+          <li class="flex text-lg hover:text-special-secondary hover:dark:text-d-special-secondary transition duration-200 easy-in-out"><a href="favoris.html">Favoris</a></li>
+          <li class="flex text-lg hover:text-special-secondary hover:dark:text-d-special-secondary transition duration-200 easy-in-out"><a href="#">Blog</a></li>
+          <li class="flex text-lg hover:text-special-secondary hover:dark:text-d-special-secondary transition duration-200 easy-in-out"><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+    
     </div>
   </header>
 

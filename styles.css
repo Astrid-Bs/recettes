@@ -261,8 +261,110 @@ footer p {
   font-size: 14px;
 }
 
-/* Media Query pour les petits écrans */
+.menu-button, .menu-drawer {
+  display: none;
+}
+
+/* Par défaut, on affiche la navigation */
+nav {
+  display: block; /* Assurez-vous que le menu est affiché sur les grands écrans */
+}
+
+/* Masquer la navigation sur les petits écrans (max-width: 768px) */
 @media (max-width: 768px) {
+  nav {
+    display: none; /* Masque la navigation pour les écrans mobiles */
+  }
+  
+  /* Menu Button (hamburger) */
+  .menu-button {
+    position: relative;
+    width: 30px;
+    height: 20px;
+    cursor: pointer;
+    z-index: 1001; /* Assurez-vous que le bouton est au-dessus des autres éléments */
+    display: block; /* Affiche le bouton menu pour les petits écrans */
+  }
+
+  .menu-line {
+    width: 30px;
+    height: 4px;
+    background-color: white;
+    position: absolute;
+    transition: all 0.3s ease;
+  }
+
+  .menu-line:nth-child(1) {
+    top: 0;
+  }
+
+  .menu-line:nth-child(2) {
+    top: 8px;
+  }
+
+  .menu-line:nth-child(3) {
+    top: 16px;
+  }
+
+  /* Menu Drawer */
+  .menu-drawer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #2e2e2e;
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: 300px; /* Largeur du menu */
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+    z-index: 1000; /* Assurez-vous que le menu est au-dessus des autres éléments */
+    display: block; /* Affiche le menu pour les petits écrans */
+  }
+
+  .menu-drawer.active {
+    transform: translateX(0);
+  }
+
+  .menu-drawer ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .menu-drawer ul li {
+    padding: 10px;
+  }
+
+  .menu-drawer ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px;
+  }
+
+  /* Animation de la ligne hamburger */
+  .menu-button.open .menu-line:nth-child(1) {
+    transform: rotate(45deg);
+    top: 8px;
+  }
+
+  .menu-button.open .menu-line:nth-child(2) {
+    opacity: 0;
+  }
+
+  .menu-button.open .menu-line:nth-child(3) {
+    transform: rotate(-45deg);
+    top: 8px;
+  }
+
+  /* Lorsque le menu est ouvert, cacher le fond du body pour éviter les défilements */
+  body.menu-open {
+    overflow: hidden;
+  }
+
   .recettes-list {
     flex-direction: column;
     align-items: center;

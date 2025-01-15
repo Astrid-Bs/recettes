@@ -3,6 +3,20 @@ document.addEventListener('DOMContentLoaded', function () {
   const searchForm = document.getElementById('search-form');
   const searchInput = document.getElementById('search-input');
   const recipesContainer = document.getElementById('recipes-container');
+  const scrollToTopBtn = document.getElementById('scrollToTopBtn');
+
+  // Sélectionner les éléments
+const menuToggle = document.getElementById('menu-toggle');
+const menuDrawer = document.getElementById('menu-drawer');
+const body = document.body;
+
+// Ajouter un événement pour ouvrir/fermer le menu
+menuToggle.addEventListener('click', function () {
+  menuDrawer.classList.toggle('active');
+  menuToggle.classList.toggle('open'); // Ajoute ou enlève la classe 'open' pour l'animation de l'icône
+  body.classList.toggle('menu-open'); // Empêche le défilement du body lorsque le menu est ouvert
+});
+
 
   // URL de l'API TheMealDB
   const BASE_URL = 'https://www.themealdb.com/api/json/v1/1/search.php';  // URL de l'API
@@ -110,9 +124,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   });
 
-  // Code pour le bouton de remontée en haut
-  const scrollToTopBtn = document.getElementById('scrollToTopBtn');
-
+  
   // S'assurer que le bouton est caché au début
   scrollToTopBtn.style.display = "none"; // Le cacher par défaut
 
