@@ -13,14 +13,14 @@
   <header>
     <div class="container">
       <h1>Recettes Gourmandes</h1>
-      <form action="#" method="GET" class="search-form">
-        <input type="text" name="search" placeholder="Je cherche une recette..." aria-label="Rechercher des recettes">
-        <button type="submit">Rechercher</button>
+      <form action="#" method="GET" class="search-form" id="search-form">
+        <input type="text" id="search-input" placeholder="Je cherche une recette..." aria-label="Rechercher des recettes">
+        <button type="submit" id="search-btn">Rechercher</button>
       </form>
       <nav>
         <ul>
           <li><a href="#">Accueil</a></li>
-          <li><a href="#">Recettes</a></li>
+          <li><a href="#">Blog</a></li>
           <li><a href="#">Favoris</a></li>
           <li><a href="#">Contact</a></li>
         </ul>
@@ -28,7 +28,7 @@
     </div>
   </header>
 
-  <!-- Section Héro (image principale) -->
+  <!-- Section Héro -->
   <section id="hero">
     <div class="container">
       <h2> Meilleures Recettes de Cuisine </h2>
@@ -41,26 +41,8 @@
   <section id="recettes">
     <div class="container">
       <h2>Nos Recettes Populaires</h2>
-      <div class="recettes-list">
-        <!-- Carte de Recette -->
-        <div class="recette">
-          <img src="https://via.placeholder.com/300x200" alt="Recette 1">
-          <h3>Recette 1</h3>
-          <p>Description de la recette...</p>
-          <button>Voir plus</button>
-        </div>
-        <div class="recette">
-          <img src="https://via.placeholder.com/300x200" alt="Recette 2">
-          <h3>Recette 2</h3>
-          <p>Description de la recette...</p>
-          <button>Voir plus</button>
-        </div>
-        <div class="recette">
-          <img src="https://via.placeholder.com/300x200" alt="Recette 3">
-          <h3>Recette 3</h3>
-          <p>Description de la recette...</p>
-          <button>Voir plus</button>
-        </div>
+      <div class="recettes-list" id="recipes-container">
+        <!-- Les recettes seront ajoutées ici par JavaScript -->
       </div>
     </div>
   </section>
@@ -72,5 +54,6 @@
     </div>
   </footer>
 
+  <script src="script.js"></script>
 </body>
 </html>

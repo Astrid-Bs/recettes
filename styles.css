@@ -167,34 +167,43 @@ header nav ul li a:hover {
   gap: 30px;
 }
 
+/* Modification de la carte de recette pour y inclure le bouton en bas */
 .recette {
   background-color: #fff;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   border-radius: 10px;
   overflow: hidden;
   width: 30%;
+  display: flex;
+  flex-direction: column;   /* Organiser les éléments verticalement */
   transition: transform 0.3s, box-shadow 0.3s;
+  height: 100%;             /* Assurer que la carte occupe toute la hauteur de l'espace disponible */
 }
 
+/* Image de la recette */
 .recette img {
   width: 100%;
   height: 200px;
   object-fit: cover;
 }
 
+/* Titre de la recette */
 .recette h3 {
   font-size: 22px;
   color: #333;
   padding: 15px;
 }
 
+/* Description de la recette */
 .recette p {
   font-size: 14px;
   color: #777;
   padding: 0 15px;
   margin-bottom: 20px;
+  flex-grow: 1;  /* Permet de pousser le bouton vers le bas si la description est longue */
 }
 
+/* Bouton Voir la recette */
 .recette button {
   background-color: #ff6f61;
   color: white;
@@ -204,12 +213,14 @@ header nav ul li a:hover {
   cursor: pointer;
   border-radius: 0 0 10px 10px;
   transition: background-color 0.3s;
+  margin-top: auto; /* Pousse le bouton en bas de la carte */
 }
 
 .recette button:hover {
-  background-color: #ff6f61;
+  background-color: #ff5722;
 }
 
+/* Effet au survol de la carte */
 .recette:hover {
   transform: translateY(-5px);
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
