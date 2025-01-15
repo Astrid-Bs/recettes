@@ -29,15 +29,45 @@ document.addEventListener('DOMContentLoaded', function () {
       recipes.forEach(recipe => {
         const recipeElement = document.createElement('div');
         recipeElement.classList.add('recette');
-
+        // Vérifier si les étoiles sont déjà présentes
+        const etoilesExistantes = recipeElement.querySelector('.etoiles');
+        if (etoilesExistantes) {
+          etoilesExistantes.remove(); // Supprimer les étoiles existantes (pour éviter les doublons)
+        }
+        // Création du HTML pour chaque recette, avec les étoiles avant le bouton
         recipeElement.innerHTML = `
           <img src="${recipe.strMealThumb}" alt="${recipe.strMeal}">
           <h3>${recipe.strMeal}</h3>
           <p>${recipe.strInstructions}</p>
+          
+          <div class="etoiles">
+            <span class="etoile" data-recipe-id="${recipe.idMeal}" data-note="1">☆</span>
+            <span class="etoile" data-recipe-id="${recipe.idMeal}" data-note="2">☆</span>
+            <span class="etoile" data-recipe-id="${recipe.idMeal}" data-note="3">☆</span>
+            <span class="etoile" data-recipe-id="${recipe.idMeal}" data-note="4">☆</span>
+            <span class="etoile" data-recipe-id="${recipe.idMeal}" data-note="5">☆</span>
+          </div>
+
           <button onclick="window.open('https://www.themealdb.com/meal/${recipe.idMeal}', '_blank')">Voir la recette</button>
         `;
 
         recipesContainer.appendChild(recipeElement);
+        // Ajouter un gestionnaire d'événement pour chaque étoile
+        const etoiles = recipeElement.querySelectorAll('.etoile');
+        etoiles.forEach(etoile => {
+          etoile.addEventListener('click', (event) => {
+            const recetteId = event.target.dataset.recipeId;
+            const note = event.target.dataset.note;
+
+            // Sauvegarde la note dans le localStorage (ou une autre base de données si nécessaire)
+            let avisRecette = JSON.parse(localStorage.getItem(`avis-recette-${recetteId}`)) || [];
+            avisRecette.push({ note });
+            localStorage.setItem(`avis-recette-${recetteId}`, JSON.stringify(avisRecette));
+
+            // Afficher un message de confirmation
+            alert(`Merci pour votre avis ! Vous avez donné une note de ${note} étoiles.`);
+          });
+       });
       });
     } else {
       recipesContainer.innerHTML = '<p>Aucune recette trouvée.</p>';
