@@ -429,3 +429,40 @@ a:hover{
   transform: scale(1.2); /* Agrandir les icônes au survol */
   color: #ff6f61; 
 }
+
+.avis-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.number-of-reviews {
+  margin-right: 10px; /* Espacement entre le texte des avis et le bouton */
+}
+
+.like-btn {
+  background-color:#ff6f61  !important;
+  border-radius: 50% !important;
+  width: 40px !important;
+  height: 40px !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 !important;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.like-btn:hover {
+  background-color: #ff4081; /* Changer la couleur de fond au survol */
+  transform: scale(1.1); /* Agrandir légèrement le bouton au survol */
+}
+
+.like-btn ion-icon {
+  font-size: 20px; /* Taille de l'icône à l'intérieur du bouton */
+  color: white; /* Couleur de l'icône initialement rose */
+}
+
+.like-btn:hover ion-icon {
+  font-size: 25px; 
+}

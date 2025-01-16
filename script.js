@@ -67,9 +67,14 @@ document.addEventListener('DOMContentLoaded', function () {
             <span class="etoile" data-recipe-id="${recipe.idMeal}" data-note="5">☆</span>
           </div>
 
-          <!-- Afficher le nombre d'avis entre parenthèses -->
-          <span class="number-of-reviews">(${numberOfReviews} avis)</span>
-
+          <div class="avis-container">
+            <span class="number-of-reviews">(${numberOfReviews} avis)</span>
+            
+            <!-- Icône "like" avec un bouton à droite -->
+            <button class="like-btn" data-recipe-id="${recipe.idMeal}">
+              <ion-icon name="heart-outline"></ion-icon>
+            </button>
+          </div>
 
           <!-- Modification de l'événement du bouton pour rediriger vers la page des détails -->
         <button onclick="window.location.href = 'recipes-details.html?id=${recipe.idMeal}'">Découvrir la recette</button>
