@@ -63,7 +63,7 @@ document.addEventListener('DOMContentLoaded', function () {
             <span class="etoile" data-recipe-id="${recipe.idMeal}" data-note="5">☆</span>
           </div>
 
-          <button onclick="window.open('https://www.themealdb.com/meal/${recipe.idMeal}', '_blank')">Découvrir la recette</button>
+          <button onclick="window.open('recipes-details.html?id=${recipe.idMeal}', '_blank')">Découvrir la recette</button>
         `;
 
         recipesContainer.appendChild(recipeElement);

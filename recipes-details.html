@@ -7,6 +7,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
   <script src="https://kit.fontawesome.com/28e463253c.js" crossorigin="anonymous"></script>
+  <script src="recipes-details.js" defer></script>
+  <script src="script.js" defer></script>
 </head>
 <body>
 
@@ -52,31 +54,29 @@
     </div>
   </header>
 
-  <!-- Section Héro -->
-  <section id="hero">
+ <!-- Section Héro -->
+ <section id="hero">
     <div class="container">
-      <h2>Découvrez des recettes saines, </h2>
-      <h2>faciles à préparer et délicieuses !</h2>
-      <p>Ajoutez les ingrédients de vos <span>recettes favorites</span> à votre liste de courses. </p>
-      <!-- Nouveau bouton pour la liste de courses -->
-    <button> 
-      Créer ma Liste de Courses</i> 
-    </button>
-    <i class="far fa-shopping-cart"></i>
+        <h1>Détails de la Recette</h1>
+        <button> 
+            Ajouter à ma Liste de Courses</i> 
+          </button>
+          <i class="far fa-shopping-cart"></i>
     </div>
-  </section>
+</section>
 
-  <!-- Section des Recettes -->
-  <section id="recettes">
-    <div class="container">
-      <h2>Nos Recettes Populaires</h2>
-      <div class="recettes-list" id="recipes-container">
-        <!-- Les recettes seront ajoutées ici par JavaScript -->
+  <div id="recipe-details-container">
+    <!-- Les détails de la recette seront affichés ici -->
+    <div id="ingredients-container">
+        <h4>Ingrédients</h4>
+        <ul id="ingredients-list">
+          <!-- Liste des ingrédients sera ajoutée ici -->
+        </ul>
       </div>
-    </div>
-  </section>
+</div>
 
-  <footer id="contact">
+
+<footer id="contact">
    
     <div class="contact-info">
       <button id="scrollToTopBtn" class="scroll-to-top-btn">&#8593;</button>
@@ -86,7 +86,6 @@
     </div>
     <p>&copy; 2025 Votre site de recettes</p>
   </footer>
-
-  <script src="script.js"></script>
+ 
 </body>
 </html>
