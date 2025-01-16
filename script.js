@@ -91,9 +91,7 @@ document.addEventListener('DOMContentLoaded', function () {
             const note = event.target.dataset.note;
 
             // Sauvegarde la note dans le localStorage (ou une autre base de données si nécessaire)
-            let avisRecette = JSON.parse(localStorage.getItem(`avis-recette-${recetteId}`)) || [];
-            avisRecette.push({ note });
-            localStorage.setItem(`avis-recette-${recetteId}`, JSON.stringify(avisRecette));
+            localStorage.setItem(`avis-recette-${recetteId}`, note); // Enregistre la note de l'utilisateur pour cette recette
 
             // Afficher un message de confirmation
             alert(`Merci pour votre avis ! Vous avez donné une note de ${note} étoiles.`);
@@ -103,6 +101,16 @@ document.addEventListener('DOMContentLoaded', function () {
             }
           });
         });
+        // Récupérer et afficher la note si elle est déjà enregistrée
+        const recetteId = recipe.idMeal;
+        const noteEnregistree = localStorage.getItem(`avis-recette-${recetteId}`);
+
+        if (noteEnregistree) {
+            for (let i = 0; i < noteEnregistree; i++) {
+                etoiles[i].classList.add('active');
+            }
+        }
+
       });
     } else {
       recipesContainer.innerHTML = '<p>Aucune recette trouvée.</p>';
