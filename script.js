@@ -37,6 +37,24 @@ document.addEventListener('DOMContentLoaded', function () {
 
   fetchAllRecipes(); // Appelle la fonction pour afficher toutes les recettes au démarrage
 
+   // Fonction pour gérer le clic sur le bouton "like"
+   function handleLikeClick(event) {
+    const recipeId = event.target.closest('button').dataset.recipeId; // Récupère l'ID de la recette
+    let favorites = JSON.parse(localStorage.getItem('favorites')) || []; // Récupère les favoris du localStorage, ou crée un tableau vide
+    // Ajouter l'ID de la recette aux favoris si ce n'est pas déjà fait
+    if (!favorites.includes(recipeId)) {
+      favorites.push(recipeId); // Ajoute l'ID aux favoris
+      localStorage.setItem('favorites', JSON.stringify(favorites)); // Sauvegarde dans le localStorage
+
+      // Afficher le message de confirmation
+      alert("La recette a été ajoutée en favoris. Retrouvez-la en cliquant sur 'Favoris' en haut de la page.");
+    } else {
+      // Si la recette est déjà dans les favoris
+      alert("Cette recette est déjà dans vos favoris.");
+    }
+  }
+
+
   function displayRecipes(recipes) {
     recipesContainer.innerHTML = '';  // Vide le conteneur avant de réafficher les recettes
 
@@ -81,6 +99,10 @@ document.addEventListener('DOMContentLoaded', function () {
         `;
 
         recipesContainer.appendChild(recipeElement);
+
+          // Ajouter un gestionnaire d'événement pour le bouton like
+          const likeBtn = recipeElement.querySelector('.like-btn');
+          likeBtn.addEventListener('click', handleLikeClick); // Gère le clic sur le bouton "like"  
 
         // Ajouter un gestionnaire d'événement pour chaque étoile
         const etoiles = recipeElement.querySelectorAll('.etoile');
