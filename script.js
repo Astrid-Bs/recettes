@@ -49,6 +49,10 @@ document.addEventListener('DOMContentLoaded', function () {
         if (etoilesExistantes) {
           etoilesExistantes.remove(); // Supprimer les étoiles existantes (pour éviter les doublons)
         }
+
+        // Nombre d'avis (ici on prend un nombre fictif, tu peux le récupérer de la base de données ou de localStorage)
+        const numberOfReviews = localStorage.getItem(`avis-recette-count-${recipe.idMeal}`) || 0;
+
         // Création du HTML pour chaque recette, avec les étoiles avant le bouton
         recipeElement.innerHTML = `
           <img src="${recipe.strMealThumb}" alt="${recipe.strMeal}">
@@ -62,6 +66,10 @@ document.addEventListener('DOMContentLoaded', function () {
             <span class="etoile" data-recipe-id="${recipe.idMeal}" data-note="4">☆</span>
             <span class="etoile" data-recipe-id="${recipe.idMeal}" data-note="5">☆</span>
           </div>
+
+          <!-- Afficher le nombre d'avis entre parenthèses -->
+          <span class="number-of-reviews">(${numberOfReviews} avis)</span>
+
 
           <!-- Modification de l'événement du bouton pour rediriger vers la page des détails -->
         <button onclick="window.location.href = 'recipes-details.html?id=${recipe.idMeal}'">Découvrir la recette</button>
@@ -90,18 +98,27 @@ document.addEventListener('DOMContentLoaded', function () {
             const recetteId = event.target.dataset.recipeId;
             const note = event.target.dataset.note;
 
-            // Sauvegarde la note dans le localStorage (ou une autre base de données si nécessaire)
-            localStorage.setItem(`avis-recette-${recetteId}`, note); // Enregistre la note de l'utilisateur pour cette recette
+           // Sauvegarde la note dans le localStorage
+           localStorage.setItem(`avis-recette-${recetteId}`, note); // Enregistre la note de l'utilisateur pour cette recette
+
+           // Met à jour le nombre d'avis (on peut l'augmenter ici)
+           let currentReviewCount = localStorage.getItem(`avis-recette-count-${recetteId}`) || 0;
+           currentReviewCount = parseInt(currentReviewCount) + 1;
+           localStorage.setItem(`avis-recette-count-${recetteId}`, currentReviewCount);
 
             // Afficher un message de confirmation
             alert(`Merci pour votre avis ! Vous avez donné une note de ${note} étoiles.`);
             // Après avoir cliqué, laisser les étoiles colorées selon la note donnée
+             // Réafficher les recettes pour mettre à jour la note moyenne et le nombre d'avis
+             displayRecipes(window.allRecipes);
+
             for (let i = 0; i < note; i++) {
               etoiles[i].classList.add('active');
             }
           });
         });
-        // Récupérer et afficher la note si elle est déjà enregistrée
+
+          // Récupérer et afficher la note si elle est déjà enregistrée
         const recetteId = recipe.idMeal;
         const noteEnregistree = localStorage.getItem(`avis-recette-${recetteId}`);
 
@@ -110,7 +127,6 @@ document.addEventListener('DOMContentLoaded', function () {
                 etoiles[i].classList.add('active');
             }
         }
-
       });
     } else {
       recipesContainer.innerHTML = '<p>Aucune recette trouvée.</p>';
