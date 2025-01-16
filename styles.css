@@ -411,3 +411,21 @@ nav {
 span {
  color: #ff5722;
 }
+
+a {
+  color: white;
+}
+
+a:hover{
+  color: #ff6f61;
+}
+
+#icones ion-icon {
+  font-size: 5rem;
+  padding: 10px;
+}
+
+#icones ion-icon:hover {
+  transform: scale(1.2); /* Agrandir les icônes au survol */
+  color: #ff6f61; 
+}
