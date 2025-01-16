@@ -387,21 +387,6 @@ nav {
   }
 }
 
-
-/* Style de l'icône de cœur */
-.heart-icon {
-  font-size: 2rem;
-  color: #333;
-  cursor: pointer;
-  transition: color 0.3s ease;
-  margin-top: 10px;
-}
-
-.heart-icon.liked {
-  color: #ff6f61; /* Couleur lorsque le cœur est aimé */
-}
-
-
 .scroll-to-top-btn {
   position: fixed; /* Rendre le bouton fixe */
   bottom: 30px; /* Placer à 30px du bas */
