@@ -387,6 +387,7 @@ nav {
   }
 }
 
+
 .scroll-to-top-btn {
   position: fixed; /* Rendre le bouton fixe */
   bottom: 30px; /* Placer à 30px du bas */
@@ -405,4 +406,8 @@ nav {
 
 .scroll-to-top-btn:hover {
   background-color: #ff5722; /* Changer la couleur au survol */
+}
+
+span {
+ color: #ff5722;
 }
