@@ -1,21 +1,22 @@
 document.addEventListener('DOMContentLoaded', function () {
   
+  // Variables pour la recherche et affichage des recettes
   const searchForm = document.getElementById('search-form');
   const searchInput = document.getElementById('search-input');
   const recipesContainer = document.getElementById('recipes-container');
   const scrollToTopBtn = document.getElementById('scrollToTopBtn');
 
-  // Sélectionner les éléments
-const menuToggle = document.getElementById('menu-toggle');
-const menuDrawer = document.getElementById('menu-drawer');
-const body = document.body;
+  // Variables pour le menu mobile
+  const menuToggle = document.getElementById('menu-toggle');
+  const menuDrawer = document.getElementById('menu-drawer');
+  const body = document.body;
 
-// Ajouter un événement pour ouvrir/fermer le menu
-menuToggle.addEventListener('click', function () {
-  menuDrawer.classList.toggle('active');
-  menuToggle.classList.toggle('open'); // Ajoute ou enlève la classe 'open' pour l'animation de l'icône
-  body.classList.toggle('menu-open'); // Empêche le défilement du body lorsque le menu est ouvert
-});
+  // Ajouter un événement pour ouvrir/fermer le menu
+  menuToggle.addEventListener('click', function () {
+    menuDrawer.classList.toggle('active');
+    menuToggle.classList.toggle('open'); // Ajoute ou enlève la classe 'open' pour l'animation de l'icône
+    body.classList.toggle('menu-open'); // Empêche le défilement du body lorsque le menu est ouvert
+  });
 
 
   // URL de l'API TheMealDB
@@ -100,7 +101,7 @@ menuToggle.addEventListener('click', function () {
               etoiles[i].classList.add('active');
             }
           });
-       });
+        });
       });
     } else {
       recipesContainer.innerHTML = '<p>Aucune recette trouvée.</p>';
