@@ -2,7 +2,8 @@ document.addEventListener('DOMContentLoaded', function () {
   const recipeId = new URLSearchParams(window.location.search).get('id'); // Récupère l'ID de la recette depuis l'URL
   const recipeDetailsContainer = document.getElementById('recipe-details-container');
   const ingredientsListContainer = document.getElementById('ingredients-list'); // Conteneur pour les ingrédients
-
+  const shareLinkBtn = document.getElementById('share-link-btn');
+  
   if (recipeId) {
     // Requête pour récupérer les détails de la recette
     fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${recipeId}`)
@@ -37,6 +38,19 @@ document.addEventListener('DOMContentLoaded', function () {
 
         // Insère la liste d'ingrédients dans le conteneur approprié
         ingredientsListContainer.innerHTML = ingredientsList;
+      
+        // Met à jour les liens de partage
+        const recipeUrl = window.location.href; // Récupère l'URL actuelle de la page
+
+        // Fonction de partage du lien
+        shareLinkBtn.addEventListener('click', function () {
+          // Copie l'URL de la recette dans le presse-papiers
+          navigator.clipboard.writeText(recipeUrl).then(function() {
+            alert("Le lien a été copié dans le presse-papiers !");
+          }).catch(function(error) {
+            console.error("Erreur lors de la copie du lien : ", error);
+          });
+        });
       })
       .catch(error => {
         console.error('Erreur lors de la récupération des détails de la recette :', error);
