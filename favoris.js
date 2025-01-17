@@ -77,5 +77,128 @@ document.addEventListener('DOMContentLoaded', function () {
     favorites.forEach(id => {
       fetchRecipeById(id); // On appelle la fonction pour chaque ID dans les favoris
     });
+
+    // Récupérer les éléments du DOM
+const publishBtn = document.getElementById('publishBtn');
+const formContainer = document.getElementById('form-container');
+const recipeForm = document.getElementById('recipeForm');
+const recipesList = document.getElementById('recipes-list');
+const addStepBtn = document.getElementById('addStepBtn');
+const stepsContainer = document.getElementById('steps-container');
+const addIngredientBtn = document.getElementById('addIngredientBtn');
+const ingredientsList = document.getElementById('ingredients-list');
+
+let stepCount = 1;
+let ingredientCount = 1;
+
+// Lorsque le bouton "Publier une Recette" est cliqué
+publishBtn.addEventListener('click', function() {
+    alert("Veuillez remplir votre recette !");
+    formContainer.style.display = 'block';
+});
+
+// Ajouter un ingrédient supplémentaire
+addIngredientBtn.addEventListener('click', function() {
+    ingredientCount++;
+
+    // Créer un nouvel ingrédient à ajouter
+    const ingredientItem = document.createElement('li');
+    ingredientItem.classList.add('ingredient-item');
+    ingredientItem.innerHTML = `
+        <input type="text" id="ingredient${ingredientCount}" name="ingredient${ingredientCount}" placeholder="Nom de l'ingrédient" required>
+        <input type="number" id="quantity${ingredientCount}" name="quantity${ingredientCount}" placeholder="Quantité" required>
+        <select id="unit${ingredientCount}" name="unit${ingredientCount}">
+            <option value="g">g</option>
+            <option value="kg">kg</option>
+            <option value="ml">ml</option>
+            <option value="L">L</option>
+            <option value="tasse">tasse</option>
+            <option value="cuillère à soupe">cuillère à soupe</option>
+            <option value="cuillère à café">cuillère à café</option>
+        </select>
+        <button type="button" class="remove-ingredient-btn">Supprimer</button>
+    `;
+    ingredientsList.appendChild(ingredientItem);
+
+    // Ajouter un événement pour supprimer cet ingrédient
+    ingredientItem.querySelector('.remove-ingredient-btn').addEventListener('click', function() {
+        ingredientsList.removeChild(ingredientItem);
+    });
+});
+
+// Lorsque l'on clique sur le bouton "Ajouter une étape"
+addStepBtn.addEventListener('click', function() {
+    stepCount++;
+    
+    // Créer une nouvelle étape
+    const newStepDiv = document.createElement('div');
+    newStepDiv.classList.add('step');
+    newStepDiv.innerHTML = `
+        <label for="step${stepCount}">Étape ${stepCount}:</label><br>
+        <textarea id="step${stepCount}" name="step${stepCount}" rows="4" required></textarea><br><br>
+    `;
+    stepsContainer.appendChild(newStepDiv);
+});
+
+// Lors de la soumission du formulaire
+recipeForm.addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    // Récupérer les valeurs du formulaire
+    const recipeName = document.getElementById('recipeName').value;
+
+    // Récupérer les ingrédients
+    const ingredients = [];
+    for (let i = 1; i <= ingredientCount; i++) {
+        const ingredientName = document.getElementById(`ingredient${i}`).value;
+        const quantity = document.getElementById(`quantity${i}`).value;
+        const unit = document.getElementById(`unit${i}`).value;
+        if (ingredientName && quantity && unit) {
+            ingredients.push(`${ingredientName} - ${quantity} ${unit}`);
+        }
+    }
+
+    // Récupérer les étapes
+    const steps = [];
+    for (let i = 1; i <= stepCount; i++) {
+        const stepText = document.getElementById(`step${i}`).value;
+        if (stepText) {
+            steps.push({ num: i, text: stepText });
+        }
+    }
+
+    // Créer une nouvelle recette à afficher
+    const recipeHtml = `
+        <div class="recipe">
+            <h3>${recipeName}</h3>
+            <ul>
+                ${ingredients.map(ingredient => `<li>${ingredient}</li>`).join('')}
+            </ul>
+            <h4>Étapes</h4>
+            <ol>
+                ${steps.map(step => `
+                    <li>
+                        <span class="step-number">${step.num}</span>
+                        <span class="step-content">${step.text}</span>
+                    </li>
+                `).join('')}
+            </ol>
+        </div>
+        <hr>
+    `;
+    
+    // Ajouter la recette à la liste
+    recipesList.innerHTML += recipeHtml;
+
+    // Réinitialiser le formulaire et cacher le formulaire
+    recipeForm.reset();
+    stepsContainer.innerHTML = '<h3>Instructions</h3><div class="step"><label for="step1">Étape 1:</label><br><textarea id="step1" name="step1" rows="4" required></textarea><br><br></div>';
+    formContainer.style.display = 'none';
+    stepCount = 1; // Réinitialiser le compteur d'étapes
+    ingredientCount = 1; // Réinitialiser le compteur d'ingrédients
+    ingredientsList.innerHTML = ''; // Réinitialiser la liste des ingrédients
+});
+
+
   });
   
