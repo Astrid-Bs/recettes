@@ -534,6 +534,12 @@ h1, h2, h3 {
   color: #333;
 }
 
+.title{
+  color: white;
+}
+
+
+
 /* Style des images */
 #recipe-details-container img {
   max-width: 100%;
