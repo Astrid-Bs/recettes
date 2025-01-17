@@ -467,9 +467,104 @@ a:hover{
   font-size: 25px; 
 }
 
+h1{
+  text-align: center;
+  font-size: 48px;
+  color: #ff6f61;
+  margin-bottom: 40px;
+}
+
 h2 {
   text-align: center;
   font-size: 36px;
   color: #333;
   margin-bottom: 40px;
+}
+
+/* Centrer la section contenant les ingrédients et les détails */
+section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 20px;
+}
+
+/* Style commun pour les conteneurs d'ingrédients et de détails de la recette */
+#ingredients-list,
+#recipe-details-container {
+  width: 100%;
+  max-width: 800px;
+  padding: 20px;
+  background-color: white;
+  border-radius: 8px;
+  margin: 10px 0;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Espacement supplémentaire entre les éléments */
+#ingredients-list {
+  margin-bottom: 40px;
+}
+
+/* Ajouter un trait à côté du titre */
+#ingredients-title,
+#preparation-title {
+  border: 1px solid #ccc;
+  margin: 20px 0;
+}
+
+/* Style des ingrédients */
+#ingredients-list ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+#ingredients-list li {
+  margin: 10px 0;
+}
+
+#ingredients-list input[type="checkbox"] {
+  margin-right: 10px;
+}
+
+/* Style des titres */
+h1, h2, h3 {
+  color: #333;
+}
+
+/* Style des images */
+#recipe-details-container img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin: 10px 0;
+}
+
+/* Style des ingrédients */
+#ingredients-list ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+#ingredients-list li {
+  display: flex; /* Utilisation de flexbox pour aligner horizontalement */
+  align-items: center; /* Aligner les éléments verticalement */
+  margin: 10px 0;
+}
+
+#ingredients-list input[type="checkbox"] {
+  margin-right: 10px; /* Espacement entre la case à cocher et le label */
+  transform: scale(2); /* Agrandir légèrement les cases à cocher */
+  cursor: pointer; /* Curseur pointer pour l'interaction */
+  width: 25px; /* Taille personnalisée en largeur */
+  height: 25px; /* Taille personnalisée en hauteur */
+}
+
+#ingredients-list label {
+  font-size: 28px; /* Taille de la police du label */
+  color: #333; /* Couleur du texte */
+  cursor: pointer; /* Curseur pointer pour le label */
 }
