@@ -59,7 +59,6 @@
   align-self: center; /* Centrer les boutons horizontalement */
 }
 
-/* Effet au survol des boutons du formulaire */
 #form-container button:hover {
   background-color: #ff3d32;
 }
@@ -69,14 +68,14 @@
 #addStepBtn {
   width: 80%; /* Centrer le bouton et le rendre plus large */
   max-width: 600px;
-  margin-top: 10px; /* Espacement entre les boutons */
+  margin-top: 10px; 
 }
 
 /* Bouton "Publier une Recette" */
 #publishBtn {
   background-color: #ff6f61;
   color: white;
-  font-size: 24px; /* Augmenter la taille pour que le "+" soit visible */
+  font-size: 36px; /* Augmenter la taille du "+"*/
   padding: 12px 20px;
   border: none;
   border-radius: 50%; /* Pour que le bouton soit rond */
@@ -129,6 +128,7 @@
   max-width: 300px; /* Limite la taille des cartes */
 }
 
+
 .recipe:hover {
   transform: scale(1.02);
 }
@@ -147,6 +147,14 @@
   margin-bottom: 20px;
   line-height: 1.6;
   min-height: 60px; /* Donne un peu d'espace pour les descriptions courtes */
+}
+
+.recipe img {
+  max-width: 100%;  
+  height: auto;   
+  border-radius: 8px; 
+  object-fit: cover;  /* Permet à l'image de couvrir le conteneur tout en gardant ses proportions */
+  margin-bottom: 15px; 
 }
 
 /* Étapes sous forme de liste avec un espacement et un alignement propre */

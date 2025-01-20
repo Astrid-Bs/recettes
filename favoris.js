@@ -147,6 +147,11 @@ document.addEventListener('DOMContentLoaded', function () {
     // Récupérer les valeurs du formulaire
     const recipeName = document.getElementById('recipeName').value;
 
+    // Récupérer l'image
+    const imageFile = document.getElementById('recipeImage').files[0];
+    const imageUrl = imageFile ? URL.createObjectURL(imageFile) : ''; // Si une image est sélectionnée, créer une URL temporaire
+
+
     // Récupérer les ingrédients
     const ingredients = [];
     for (let i = 1; i <= ingredientCount; i++) {
@@ -171,26 +176,26 @@ document.addEventListener('DOMContentLoaded', function () {
     const recipeHtml = `
         <div class="recipe">
           <h3>${recipeName}</h3>
+         ${imageUrl ? `<img src="${imageUrl}" alt="${recipeName}" class="recipe-image">` : ''}
           <ul>
             ${ingredients.map(ingredient => `
               <li class="ingredient-item">
-                  <!-- Ajouter la checkbox pour chaque ingrédient -->
-                  <input type="checkbox" id="checkbox-${ingredient}" class="ingredient-checkbox">
-                  <label for="checkbox-${ingredient}">${ingredient}</label>
+                <!-- Ajouter la checkbox pour chaque ingrédient -->
+                <input type="checkbox" id="checkbox-${ingredient}" class="ingredient-checkbox">
+                <label for="checkbox-${ingredient}">${ingredient}</label>
               </li>
-              `).join('')}
-            </ul>
-            <h4>Étapes</h4>
-            <ol>
-                ${steps.map(step => `
-                  <li>
-                      <span class="step-number">${step.num}</span>
-                      <span class="step-content">${step.text}</span>
-                  </li>
-                `).join('')}
-            </ol>
+            `).join('')}
+          </ul>
+          <h4>Étapes</h4>
+          <ol>
+            ${steps.map(step => `
+              <li>
+                <span class="step-number">${step.num}</span>
+                <span class="step-content">${step.text}</span>
+              </li>
+            `).join('')}
+          </ol>
         </div>
-        <hr>
     `;
 
     // Ajouter la recette à la liste
