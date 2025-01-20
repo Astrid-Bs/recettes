@@ -1,116 +1,115 @@
 /* Conteneur du formulaire */
 #form-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center; /* Centrer les éléments horizontalement */
-    justify-content: center; /* Centrer les éléments verticalement */
-    text-align: center;
-    padding: 30px;
-    background-color: #fff;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    width: 80%;
-    max-width: 800px;
-    margin: 0 auto;
-  }
-  
-  /* Formulaire */
-  #recipeForm {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    width: 100%;
-  }
-  
-  /* Champs de saisie */
-  #recipeForm input,
-  #recipeForm select,
-  #recipeForm textarea {
-    padding: 10px;
-    font-size: 16px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    width: 100%;
-    max-width: 600px;
-  }
-  
-  /* Espacement entre les éléments du formulaire */
-  #recipeForm h3, #recipeForm label {
-    text-align: left;
-    width: 100%;
-    max-width: 600px;
-    font-size: 18px;
-  }
-  
-  /* Styliser tous les boutons dans la section du formulaire */
-  #form-container button {
-    background-color: #ff6f61;
-    color: white;
-    font-size: 16px;
-    padding: 12px 20px;
-    border: none;
-    border-radius: 30px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    width: 80%; /* Centrer les boutons et les rendre plus larges */
-    max-width: 600px;
-    margin-top: 20px;
-    align-self: center; /* Centrer les boutons horizontalement */
-  }
-  
-  /* Effet au survol des boutons du formulaire */
-  #form-container button:hover {
-    background-color: #ff3d32;
-  }
-  
-  /* Bouton "Ajouter un ingrédient" */
-  #addIngredientBtn,
-  #addStepBtn {
-    width: 80%; /* Centrer le bouton et le rendre plus large */
-    max-width: 600px;
-    margin-top: 10px; /* Espacement entre les boutons */
-  }
-  
-  /* Bouton "Publier" */
-  #publishBtn {
-    width: 80%; /* Centrer le bouton et le rendre plus large */
-    max-width: 600px;
-    margin-top: 10px;
-  }
-  
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centrer les éléments horizontalement */
+  justify-content: center; /* Centrer les éléments verticalement */
+  text-align: center;
+  padding: 30px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 80%;
+  max-width: 800px;
+  margin: 0 auto;
+}
 
-  /* Bouton "Publier une Recette" */
+/* Formulaire */
+#recipeForm {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+}
+
+/* Champs de saisie */
+#recipeForm input,
+#recipeForm select,
+#recipeForm textarea {
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  width: 100%;
+  max-width: 600px;
+}
+
+/* Espacement entre les éléments du formulaire */
+#recipeForm h3,
+#recipeForm label {
+  text-align: left;
+  width: 100%;
+  max-width: 600px;
+  font-size: 18px;
+}
+
+/* Styliser tous les boutons dans la section du formulaire */
+#form-container button {
+  background-color: #ff6f61;
+  color: white;
+  font-size: 16px;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  width: 80%; /* Centrer les boutons et les rendre plus larges */
+  max-width: 600px;
+  margin-top: 20px;
+  align-self: center; /* Centrer les boutons horizontalement */
+}
+
+/* Effet au survol des boutons du formulaire */
+#form-container button:hover {
+  background-color: #ff3d32;
+}
+
+/* Bouton "Ajouter un ingrédient" */
+#addIngredientBtn,
+#addStepBtn {
+  width: 80%; /* Centrer le bouton et le rendre plus large */
+  max-width: 600px;
+  margin-top: 10px; /* Espacement entre les boutons */
+}
+
+/* Bouton "Publier" */
 #publishBtn {
-    background-color: #ff6f61;
-    color: white;
-    font-size: 24px; /* Augmenter la taille pour que le "+" soit visible */
-    padding: 12px 20px;
-    border: none;
-    border-radius: 50%; /* Pour que le bouton soit rond */
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    width: 80px; /* Taille fixe du bouton */
-    height: 80px; /* Taille fixe du bouton */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 20px;
-    align-self: center; /* Centrer horizontalement */
-  }
-  
+  width: 80%; /* Centrer le bouton et le rendre plus large */
+  max-width: 600px;
+  margin-top: 10px;
+}
+
+/* Bouton "Publier une Recette" */
+#publishBtn {
+  background-color: #ff6f61;
+  color: white;
+  font-size: 24px; /* Augmenter la taille pour que le "+" soit visible */
+  padding: 12px 20px;
+  border: none;
+  border-radius: 50%; /* Pour que le bouton soit rond */
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  width: 80px; /* Taille fixe du bouton */
+  height: 80px; /* Taille fixe du bouton */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  align-self: center; /* Centrer horizontalement */
+}
+
 #publishBtn:hover {
-background-color: #ff3d32;
+  background-color: #ff3d32;
 }
 
 #publishBtn .plus-icon {
-font-size: 36px; /* Taille du "+" */
+  font-size: 36px; /* Taille du "+" */
 }
 
 /* Si vous souhaitez ajouter un effet d'agrandissement au survol */
 #publishBtn:hover .plus-icon {
-transform: scale(1.2);
+  transform: scale(1.2);
 }
-  
 
 /* Conteneur pour aligner le titre et le bouton */
 #header-container {
@@ -146,5 +145,3 @@ transform: scale(1.2);
 #publishBtn .plus-icon {
   font-size: 36px; /* Taille du "+" */
 }
-
-

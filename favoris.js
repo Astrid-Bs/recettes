@@ -1,48 +1,48 @@
 document.addEventListener('DOMContentLoaded', function () {
-    const favoritesContainer = document.getElementById('favorites-container');
-    
-    // Récupérer les favoris du localStorage
-    const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
-  
-    // Vérifier s'il y a des favoris
-    if (favorites.length === 0) {
-      favoritesContainer.innerHTML = '<p>Aucune recette dans vos favoris.</p>';
-      return;
-    }
-  
-    // URL de l'API TheMealDB pour récupérer les recettes par ID
-    const BASE_URL = 'https://www.themealdb.com/api/json/v1/1/lookup.php';
-  
-    // Fonction pour récupérer une recette par son ID
-    function fetchRecipeById(id) {
-      const url = `${BASE_URL}?i=${id}`;
-      
-      fetch(url)
-        .then(response => response.json())
-        .then(data => {
-          if (data.meals) {
-            const recipe = data.meals[0];
-            displayRecipe(recipe);
-          }
-        })
-        .catch(error => console.error('Erreur lors de la récupération de la recette :', error));
-    }
-  
-    // Fonction pour afficher une recette dans le conteneur avec étoiles et avis
-    function displayRecipe(recipe) {
-      const recipeElement = document.createElement('div');
-      recipeElement.classList.add('recette');
-      
-      // Récupérer la note et le nombre d'avis de la recette dans le localStorage
-      const recetteId = recipe.idMeal;
-      const noteEnregistree = localStorage.getItem(`avis-recette-${recetteId}`); // Note de l'utilisateur
-      const numberOfReviews = localStorage.getItem(`avis-recette-count-${recetteId}`) || 0; // Nombre d'avis
-      
-      // Calcul de la note moyenne (si disponible)
-      const noteMoyenne = noteEnregistree || 0; // Utilisation de la note de l'utilisateur comme note moyenne pour simplification
-  
-      // Création du HTML pour afficher la recette avec les étoiles
-      recipeElement.innerHTML = `
+  const favoritesContainer = document.getElementById('favorites-container');
+
+  // Récupérer les favoris du localStorage
+  const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+
+  // Vérifier s'il y a des favoris
+  if (favorites.length === 0) {
+    favoritesContainer.innerHTML = '<p>Aucune recette dans vos favoris.</p>';
+    return;
+  }
+
+  // URL de l'API TheMealDB pour récupérer les recettes par ID
+  const BASE_URL = 'https://www.themealdb.com/api/json/v1/1/lookup.php';
+
+  // Fonction pour récupérer une recette par son ID
+  function fetchRecipeById(id) {
+    const url = `${BASE_URL}?i=${id}`;
+
+    fetch(url)
+      .then(response => response.json())
+      .then(data => {
+        if (data.meals) {
+          const recipe = data.meals[0];
+          displayRecipe(recipe);
+        }
+      })
+      .catch(error => console.error('Erreur lors de la récupération de la recette :', error));
+  }
+
+  // Fonction pour afficher une recette dans le conteneur avec étoiles et avis
+  function displayRecipe(recipe) {
+    const recipeElement = document.createElement('div');
+    recipeElement.classList.add('recette');
+
+    // Récupérer la note et le nombre d'avis de la recette dans le localStorage
+    const recetteId = recipe.idMeal;
+    const noteEnregistree = localStorage.getItem(`avis-recette-${recetteId}`); // Note de l'utilisateur
+    const numberOfReviews = localStorage.getItem(`avis-recette-count-${recetteId}`) || 0; // Nombre d'avis
+
+    // Calcul de la note moyenne (si disponible)
+    const noteMoyenne = noteEnregistree || 0; // Utilisation de la note de l'utilisateur comme note moyenne pour simplification
+
+    // Création du HTML pour afficher la recette avec les étoiles
+    recipeElement.innerHTML = `
         <img src="${recipe.strMealThumb}" alt="${recipe.strMeal}">
         <h3>${recipe.strMeal}</h3>
         <p>${recipe.strInstructions}</p>
@@ -59,46 +59,46 @@ document.addEventListener('DOMContentLoaded', function () {
   
         <button onclick="window.location.href = 'recipes-details.html?id=${recipe.idMeal}'">Découvrir la recette</button>
       `;
-      
-      favoritesContainer.appendChild(recipeElement);
+
+    favoritesContainer.appendChild(recipeElement);
+  }
+
+  // Fonction pour créer les étoiles en fonction de la note
+  function createStarRating(note) {
+    let starsHTML = '';
+    for (let i = 1; i <= 5; i++) {
+      const starClass = i <= note ? 'active' : '';
+      starsHTML += `<span class="etoile ${starClass}" data-note="${i}">☆</span>`;
     }
-  
-    // Fonction pour créer les étoiles en fonction de la note
-    function createStarRating(note) {
-      let starsHTML = '';
-      for (let i = 1; i <= 5; i++) {
-        const starClass = i <= note ? 'active' : '';
-        starsHTML += `<span class="etoile ${starClass}" data-note="${i}">☆</span>`;
-      }
-      return starsHTML;
-    }
-  
-    // Récupérer chaque recette favorite par son ID
-    favorites.forEach(id => {
-      fetchRecipeById(id); // On appelle la fonction pour chaque ID dans les favoris
-    });
+    return starsHTML;
+  }
 
-    // Récupérer les éléments du DOM
-const publishBtn = document.getElementById('publishBtn');
-const formContainer = document.getElementById('form-container');
-const recipeForm = document.getElementById('recipeForm');
-const recipesList = document.getElementById('recipes-list');
-const addStepBtn = document.getElementById('addStepBtn');
-const stepsContainer = document.getElementById('steps-container');
-const addIngredientBtn = document.getElementById('addIngredientBtn');
-const ingredientsList = document.getElementById('ingredients-list');
+  // Récupérer chaque recette favorite par son ID
+  favorites.forEach(id => {
+    fetchRecipeById(id); // On appelle la fonction pour chaque ID dans les favoris
+  });
 
-let stepCount = 1;
-let ingredientCount = 1;
+  // Récupérer les éléments du DOM
+  const publishBtn = document.getElementById('publishBtn');
+  const formContainer = document.getElementById('form-container');
+  const recipeForm = document.getElementById('recipeForm');
+  const recipesList = document.getElementById('recipes-list');
+  const addStepBtn = document.getElementById('addStepBtn');
+  const stepsContainer = document.getElementById('steps-container');
+  const addIngredientBtn = document.getElementById('addIngredientBtn');
+  const ingredientsList = document.getElementById('ingredients-list');
 
-// Lorsque le bouton "Publier une Recette" est cliqué
-publishBtn.addEventListener('click', function() {
+  let stepCount = 1;
+  let ingredientCount = 1;
+
+  // Lorsque le bouton "Publier une Recette" est cliqué
+  publishBtn.addEventListener('click', function () {
     alert("Veuillez remplir votre recette !");
     formContainer.style.display = 'block';
-});
+  });
 
-// Ajouter un ingrédient supplémentaire
-addIngredientBtn.addEventListener('click', function() {
+  // Ajouter un ingrédient supplémentaire
+  addIngredientBtn.addEventListener('click', function () {
     ingredientCount++;
 
     // Créer un nouvel ingrédient à ajouter
@@ -121,15 +121,15 @@ addIngredientBtn.addEventListener('click', function() {
     ingredientsList.appendChild(ingredientItem);
 
     // Ajouter un événement pour supprimer cet ingrédient
-    ingredientItem.querySelector('.remove-ingredient-btn').addEventListener('click', function() {
-        ingredientsList.removeChild(ingredientItem);
+    ingredientItem.querySelector('.remove-ingredient-btn').addEventListener('click', function () {
+      ingredientsList.removeChild(ingredientItem);
     });
-});
+  });
 
-// Lorsque l'on clique sur le bouton "Ajouter une étape"
-addStepBtn.addEventListener('click', function() {
+  // Lorsque l'on clique sur le bouton "Ajouter une étape"
+  addStepBtn.addEventListener('click', function () {
     stepCount++;
-    
+
     // Créer une nouvelle étape
     const newStepDiv = document.createElement('div');
     newStepDiv.classList.add('step');
@@ -138,10 +138,10 @@ addStepBtn.addEventListener('click', function() {
         <textarea id="step${stepCount}" name="step${stepCount}" rows="4" required></textarea><br><br>
     `;
     stepsContainer.appendChild(newStepDiv);
-});
+  });
 
-// Lors de la soumission du formulaire
-recipeForm.addEventListener('submit', function(event) {
+  // Lors de la soumission du formulaire
+  recipeForm.addEventListener('submit', function (event) {
     event.preventDefault();
 
     // Récupérer les valeurs du formulaire
@@ -150,21 +150,21 @@ recipeForm.addEventListener('submit', function(event) {
     // Récupérer les ingrédients
     const ingredients = [];
     for (let i = 1; i <= ingredientCount; i++) {
-        const ingredientName = document.getElementById(`ingredient${i}`).value;
-        const quantity = document.getElementById(`quantity${i}`).value;
-        const unit = document.getElementById(`unit${i}`).value;
-        if (ingredientName && quantity && unit) {
-            ingredients.push(`${ingredientName} - ${quantity} ${unit}`);
-        }
+      const ingredientName = document.getElementById(`ingredient${i}`).value;
+      const quantity = document.getElementById(`quantity${i}`).value;
+      const unit = document.getElementById(`unit${i}`).value;
+      if (ingredientName && quantity && unit) {
+        ingredients.push(`${ingredientName} - ${quantity} ${unit}`);
+      }
     }
 
     // Récupérer les étapes
     const steps = [];
     for (let i = 1; i <= stepCount; i++) {
-        const stepText = document.getElementById(`step${i}`).value;
-        if (stepText) {
-            steps.push({ num: i, text: stepText });
-        }
+      const stepText = document.getElementById(`step${i}`).value;
+      if (stepText) {
+        steps.push({ num: i, text: stepText });
+      }
     }
 
     // Créer une nouvelle recette à afficher
@@ -186,7 +186,7 @@ recipeForm.addEventListener('submit', function(event) {
         </div>
         <hr>
     `;
-    
+
     // Ajouter la recette à la liste
     recipesList.innerHTML += recipeHtml;
 
@@ -197,8 +197,7 @@ recipeForm.addEventListener('submit', function(event) {
     stepCount = 1; // Réinitialiser le compteur d'étapes
     ingredientCount = 1; // Réinitialiser le compteur d'ingrédients
     ingredientsList.innerHTML = ''; // Réinitialiser la liste des ingrédients
-});
-
-
   });
-  
+
+
+});

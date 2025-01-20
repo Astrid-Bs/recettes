@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function () {
-  
+
   // Variables pour la recherche et affichage des recettes
   const searchForm = document.getElementById('search-form');
   const searchInput = document.getElementById('search-input');
@@ -27,18 +27,18 @@ document.addEventListener('DOMContentLoaded', function () {
     const url = `${BASE_URL}?s=`;  // Requête pour obtenir toutes les recettes (sans paramètre)
 
     fetch(url)
-    .then(response => response.json())
-    .then(data => {
-      displayRecipes(data.meals); // Affiche toutes les recettes
-      window.allRecipes = data.meals;  // Stocke toutes les recettes pour filtrage ultérieur
-    })
-    .catch(error => console.error('Erreur lors de la récupération des recettes :', error));
+      .then(response => response.json())
+      .then(data => {
+        displayRecipes(data.meals); // Affiche toutes les recettes
+        window.allRecipes = data.meals;  // Stocke toutes les recettes pour filtrage ultérieur
+      })
+      .catch(error => console.error('Erreur lors de la récupération des recettes :', error));
   }
 
   fetchAllRecipes(); // Appelle la fonction pour afficher toutes les recettes au démarrage
 
-   // Fonction pour gérer le clic sur le bouton "like"
-   function handleLikeClick(event) {
+  // Fonction pour gérer le clic sur le bouton "like"
+  function handleLikeClick(event) {
     const recipeId = event.target.closest('button').dataset.recipeId; // Récupère l'ID de la recette
     let favorites = JSON.parse(localStorage.getItem('favorites')) || []; // Récupère les favoris du localStorage, ou crée un tableau vide
     // Ajouter l'ID de la recette aux favoris si ce n'est pas déjà fait
@@ -100,9 +100,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
         recipesContainer.appendChild(recipeElement);
 
-          // Ajouter un gestionnaire d'événement pour le bouton like
-          const likeBtn = recipeElement.querySelector('.like-btn');
-          likeBtn.addEventListener('click', handleLikeClick); // Gère le clic sur le bouton "like"  
+        // Ajouter un gestionnaire d'événement pour le bouton like
+        const likeBtn = recipeElement.querySelector('.like-btn');
+        likeBtn.addEventListener('click', handleLikeClick); // Gère le clic sur le bouton "like"  
 
         // Ajouter un gestionnaire d'événement pour chaque étoile
         const etoiles = recipeElement.querySelectorAll('.etoile');
@@ -125,19 +125,19 @@ document.addEventListener('DOMContentLoaded', function () {
             const recetteId = event.target.dataset.recipeId;
             const note = event.target.dataset.note;
 
-           // Sauvegarde la note dans le localStorage
-           localStorage.setItem(`avis-recette-${recetteId}`, note); // Enregistre la note de l'utilisateur pour cette recette
+            // Sauvegarde la note dans le localStorage
+            localStorage.setItem(`avis-recette-${recetteId}`, note); // Enregistre la note de l'utilisateur pour cette recette
 
-           // Met à jour le nombre d'avis (on peut l'augmenter ici)
-           let currentReviewCount = localStorage.getItem(`avis-recette-count-${recetteId}`) || 0;
-           currentReviewCount = parseInt(currentReviewCount) + 1;
-           localStorage.setItem(`avis-recette-count-${recetteId}`, currentReviewCount);
+            // Met à jour le nombre d'avis (on peut l'augmenter ici)
+            let currentReviewCount = localStorage.getItem(`avis-recette-count-${recetteId}`) || 0;
+            currentReviewCount = parseInt(currentReviewCount) + 1;
+            localStorage.setItem(`avis-recette-count-${recetteId}`, currentReviewCount);
 
             // Afficher un message de confirmation
             alert(`Merci pour votre avis ! Vous avez donné une note de ${note} étoiles.`);
             // Après avoir cliqué, laisser les étoiles colorées selon la note donnée
-             // Réafficher les recettes pour mettre à jour la note moyenne et le nombre d'avis
-             displayRecipes(window.allRecipes);
+            // Réafficher les recettes pour mettre à jour la note moyenne et le nombre d'avis
+            displayRecipes(window.allRecipes);
 
             for (let i = 0; i < note; i++) {
               etoiles[i].classList.add('active');
@@ -145,14 +145,14 @@ document.addEventListener('DOMContentLoaded', function () {
           });
         });
 
-          // Récupérer et afficher la note si elle est déjà enregistrée
+        // Récupérer et afficher la note si elle est déjà enregistrée
         const recetteId = recipe.idMeal;
         const noteEnregistree = localStorage.getItem(`avis-recette-${recetteId}`);
 
         if (noteEnregistree) {
-            for (let i = 0; i < noteEnregistree; i++) {
-                etoiles[i].classList.add('active');
-            }
+          for (let i = 0; i < noteEnregistree; i++) {
+            etoiles[i].classList.add('active');
+          }
         }
       });
     } else {
@@ -166,8 +166,8 @@ document.addEventListener('DOMContentLoaded', function () {
     const query = searchInput.value.trim().toLowerCase();
 
     if (query) {
-      const filteredRecipes = window.allRecipes.filter(recipe => 
-        recipe.strMeal.toLowerCase().includes(query) || 
+      const filteredRecipes = window.allRecipes.filter(recipe =>
+        recipe.strMeal.toLowerCase().includes(query) ||
         recipe.strInstructions.toLowerCase().includes(query)
       );
       displayRecipes(filteredRecipes);
@@ -177,7 +177,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   });
 
-  
+
   // S'assurer que le bouton est caché au début
   scrollToTopBtn.style.display = "none"; // Le cacher par défaut
 

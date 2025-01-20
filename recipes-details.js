@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', function () {
   const recipeDetailsContainer = document.getElementById('recipe-details-container');
   const ingredientsListContainer = document.getElementById('ingredients-list'); // Conteneur pour les ingrédients
   const shareLinkBtn = document.getElementById('share-link-btn');
-  
+
   if (recipeId) {
     // Requête pour récupérer les détails de la recette
     fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${recipeId}`)
@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', function () {
         for (let i = 1; i <= 20; i++) {
           const ingredient = recipe[`strIngredient${i}`];
           const measure = recipe[`strMeasure${i}`]; // Mesure de l'ingrédient
-          
+
           if (ingredient && ingredient.trim() !== '') {  // Assurez-vous que l'ingrédient n'est pas vide
             ingredientsList += `
               <li>
@@ -38,16 +38,16 @@ document.addEventListener('DOMContentLoaded', function () {
 
         // Insère la liste d'ingrédients dans le conteneur approprié
         ingredientsListContainer.innerHTML = ingredientsList;
-      
+
         // Met à jour les liens de partage
         const recipeUrl = window.location.href; // Récupère l'URL actuelle de la page
 
         // Fonction de partage du lien
         shareLinkBtn.addEventListener('click', function () {
           // Copie l'URL de la recette dans le presse-papiers
-          navigator.clipboard.writeText(recipeUrl).then(function() {
+          navigator.clipboard.writeText(recipeUrl).then(function () {
             alert("Le lien a été copié dans le presse-papiers !");
-          }).catch(function(error) {
+          }).catch(function (error) {
             console.error("Erreur lors de la copie du lien : ", error);
           });
         });

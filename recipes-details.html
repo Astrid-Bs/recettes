@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,6 +11,7 @@
   <script src="recipes-details.js" defer></script>
   <script src="script.js" defer></script>
 </head>
+
 <body>
 
   <!-- En-tête -->
@@ -17,10 +19,11 @@
     <div class="container">
       <h1 class="title">Recettes Gourmandes</h1>
       <form action="#" method="GET" class="search-form" id="search-form">
-        <input type="text" id="search-input" placeholder="Je cherche une recette..." aria-label="Rechercher des recettes">
+        <input type="text" id="search-input" placeholder="Je cherche une recette..."
+          aria-label="Rechercher des recettes">
         <button type="submit" id="search-btn">Rechercher</button>
       </form>
-  
+
       <nav>
         <ul>
           <li><a href="index.html">Accueil</a></li>
@@ -28,7 +31,7 @@
           <li><a href="#contact">Contact</a></li>
         </ul>
       </nav>
-  
+
       <div class="mx-auto py-12 m-w-100 xl:max-w-6xl px-10 xl:px-0 lg:hidden mobile-menu flex justify-end pt-8 pb-14">
         <!-- Menu Button -->
         <div id="menu-toggle" class="menu-button hover:cursor-pointer overflow-hidden fixed">
@@ -37,74 +40,88 @@
           <div class="menu-line bg-text-primary dark:bg-d-text-primary absolute"></div>
         </div>
       </div>
-      
+
       <!-- Drawer Menu -->
-      <div id="menu-drawer" class="mx-auto py-12 m-w-100 xl:max-w-6xl px-10 xl:px-0 menu-drawer bg-main-secondary dark:bg-d-main-secondary pt-16 overflow-y-auto h-full w-fit fixed top-0 right-0 transform translate-x-full transition-all duration-300">
+      <div id="menu-drawer"
+        class="mx-auto py-12 m-w-100 xl:max-w-6xl px-10 xl:px-0 menu-drawer bg-main-secondary dark:bg-d-main-secondary pt-16 overflow-y-auto h-full w-fit fixed top-0 right-0 transform translate-x-full transition-all duration-300">
         <ul class="flex flex-col justify-end gap-y-8 items-end font-outfit font-light">
-          <li class="flex text-lg hover:text-special-secondary hover:dark:text-d-special-secondary transition duration-200 easy-in-out"><a href="index.html">Accueil</a></li>
-          <li class="flex text-lg hover:text-special-secondary hover:dark:text-d-special-secondary transition duration-200 easy-in-out"><a href="favoris.html">Favoris</a></li>
-          <li class="flex text-lg hover:text-special-secondary hover:dark:text-d-special-secondary transition duration-200 easy-in-out"><a href="#contact">Contact</a></li>
+          <li
+            class="flex text-lg hover:text-special-secondary hover:dark:text-d-special-secondary transition duration-200 easy-in-out">
+            <a href="index.html">Accueil</a></li>
+          <li
+            class="flex text-lg hover:text-special-secondary hover:dark:text-d-special-secondary transition duration-200 easy-in-out">
+            <a href="favoris.html">Favoris</a></li>
+          <li
+            class="flex text-lg hover:text-special-secondary hover:dark:text-d-special-secondary transition duration-200 easy-in-out">
+            <a href="#contact">Contact</a></li>
         </ul>
       </div>
-    
+
     </div>
   </header>
 
- <!-- Section Héro -->
- <section id="hero">
+  <!-- Section Héro -->
+  <section id="hero">
     <div class="container">
-        <h1>Détails de la Recette</h1>
-      
+      <h1>Détails de la Recette</h1>
+
     </div>
     <!-- Boutons de partage -->
     <div id="share-buttons" class="share-buttons">
-      <button id="share-link-btn" class="share-btn"><ion-icon name="share-social-outline"></ion-icon> Copier le lien</button>
+      <button id="share-link-btn" class="share-btn"><ion-icon name="share-social-outline"></ion-icon> Copier le
+        lien</button>
 
       <a id="facebook-share" class="share-btn" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=">
-          <ion-icon name="logo-facebook"></ion-icon> Facebook
+        <ion-icon name="logo-facebook"></ion-icon> Facebook
       </a>
 
-      <a id="pinterest-share" class="share-btn" target="_blank" href="https://www.pinterest.com/pin/create/button/?url=">
-          <ion-icon name="logo-pinterest"></ion-icon> Pinterest
+      <a id="pinterest-share" class="share-btn" target="_blank"
+        href="https://www.pinterest.com/pin/create/button/?url=">
+        <ion-icon name="logo-pinterest"></ion-icon> Pinterest
       </a>
 
       <a id="whatsapp-share" class="share-btn" target="_blank" href="https://api.whatsapp.com/send?text=">
-          <ion-icon name="logo-whatsapp"></ion-icon> WhatsApp
+        <ion-icon name="logo-whatsapp"></ion-icon> WhatsApp
       </a>
-  </div>
+    </div>
   </section>
 
-<section>
+  <section>
     <div id="ingredients-list">
-        <!-- Les ingrédients de la recette seront injectés ici via JavaScript -->
+      <!-- Les ingrédients de la recette seront injectés ici via JavaScript -->
     </div>
 
     <div id="recipe-details-container">
-        <!-- Les détails de la recette seront injectés ici via JavaScript -->
+      <!-- Les détails de la recette seront injectés ici via JavaScript -->
     </div>
 
-</section>
+  </section>
 
-<footer id="contact">
-  <h1 class="title">Recettes Gourmandes</h1><br>
-  <div class="contact-info">
-    <div id="icones">
-      
-      <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-      <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-      <a href="https://www.facebook.com" target="_blank" class="lien-icone"><ion-icon name="logo-facebook"></ion-icon></a>
-      <a href="https://www.instagram.com" target="_blank" class="lien-icone"><ion-icon name="logo-instagram"></ion-icon></a>
-      <a href="https://www.pinterest.com" target="_blank" class="lien-icone"><ion-icon name="logo-pinterest"></a>
-      <a href="https://www.tiktok.com" target="_blank" class="lien-icone"><ion-icon name="logo-tiktok"></ion-icon></a>
-      <a href="https://www.youtube.com" target="_blank" class="lien-icone"><ion-icon name="logo-youtube"></ion-icon></a>
+  <footer id="contact">
+    <h1 class="title">Recettes Gourmandes</h1><br>
+    <div class="contact-info">
+      <div id="icones">
+
+        <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+        <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+        <a href="https://www.facebook.com" target="_blank" class="lien-icone"><ion-icon
+            name="logo-facebook"></ion-icon></a>
+        <a href="https://www.instagram.com" target="_blank" class="lien-icone"><ion-icon
+            name="logo-instagram"></ion-icon></a>
+        <a href="https://www.pinterest.com" target="_blank" class="lien-icone"><ion-icon name="logo-pinterest"></a>
+        <a href="https://www.tiktok.com" target="_blank" class="lien-icone"><ion-icon name="logo-tiktok"></ion-icon></a>
+        <a href="https://www.youtube.com" target="_blank" class="lien-icone"><ion-icon
+            name="logo-youtube"></ion-icon></a>
+      </div> <br>
+      <button id="scrollToTopBtn" class="scroll-to-top-btn">&#8593;</button>
+
+      <a href="mailto:contact@example.com" class="mail"> <ion-icon name="mail-outline"></ion-icon>
+        contact@example.com</a> <br><br>
+      <p><ion-icon name="call-outline"></ion-icon> +123 456 789</p><br>
     </div> <br>
-    <button id="scrollToTopBtn" class="scroll-to-top-btn">&#8593;</button>
-   
-    <a href="mailto:contact@example.com" class="mail"> <ion-icon name="mail-outline"></ion-icon> contact@example.com</a> <br><br>
-    <p><ion-icon name="call-outline"></ion-icon> +123 456 789</p><br>
-  </div> <br>
-  <p>&copy; 2025 Recettes Gourmandes</p>
-</footer>
-  
+    <p>&copy; 2025 Recettes Gourmandes</p>
+  </footer>
+
 </body>
+
 </html>
