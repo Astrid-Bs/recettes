@@ -1,0 +1,96 @@
+/* DÉTAILS DES RECETTES */
+
+/* Style des boutons de partage */
+.share-btn {
+    color: #ff6f61;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 10px 15px;
+  
+    border-radius: 50px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s ease;
+  }
+  
+  /* Effet au survol (hover) */
+  .share-btn:hover {
+    color: #333;
+    border-color: #333;
+    background-color: #ff6f61;
+  }
+  
+  /* Ajout d'un effet visuel pour les icônes */
+  .share-btn ion-icon {
+    font-size: 1.2em;
+  }
+  
+  /* Centrer la section contenant les ingrédients et les détails */
+  section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 20px;
+  }
+  
+  /* Espacement supplémentaire entre les éléments */
+  #ingredients-list {
+    margin-bottom: 40px;
+  }
+  
+  /* Style des ingrédients */
+  #ingredients-list ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  #ingredients-list li {
+    display: flex; /* Utilisation de flexbox pour aligner horizontalement */
+    align-items: center; /* Aligner les éléments verticalement */
+    margin: 10px 0;
+  }
+  
+  #ingredients-list input[type="checkbox"] {
+    margin-right: 10px; /* Espacement entre la case à cocher et le label */
+    transform: scale(2); /* Agrandir légèrement les cases à cocher */
+    cursor: pointer; /* Curseur pointer pour l'interaction */
+    width: 25px;
+    height: 25px;
+  }
+  
+  #ingredients-list label {
+    font-size: 28px;
+    cursor: pointer;
+    transition: text-decoration 0.3s ease; /* Animation pour barrer le texte */
+  }
+  
+  /* Quand la case à cocher est activée, barrer le texte */
+  #ingredients-list input[type="checkbox"]:checked + label {
+    text-decoration: line-through;
+    color: #aaa;
+  }
+  
+  /* Style commun pour les conteneurs d'ingrédients et de détails de la recette */
+  #ingredients-list,
+  #recipe-details-container {
+    width: 100%;
+    max-width: 800px;
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    margin: 10px 0;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Style des images */
+  #recipe-details-container img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin: 10px 0;
+  }
+  

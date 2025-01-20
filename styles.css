@@ -13,6 +13,24 @@ body {
   max-width: 100%;
 }
 
+h1 {
+  text-align: center;
+  font-size: 48px;
+  color: #ff6f61;
+  margin-bottom: 40px;
+}
+
+h2 {
+  text-align: center;
+  font-size: 36px;
+  color: #333;
+  margin-bottom: 40px;
+}
+
+h3 {
+  color: #333;
+}
+
 /* En-tête */
 header {
   background-color: #333;
@@ -46,7 +64,7 @@ header h1 {
 .search-form input {
   border: none;
   padding: 12px 20px;
-  width: 100%; /* Le champ de recherche prend 85% de la largeur */
+  width: 100%; /* Le champ de recherche prend 100% de la largeur */
   font-size: 16px;
   border-radius: 30px 0 0 30px; /* Coins arrondis à gauche */
   outline: none;
@@ -58,7 +76,7 @@ header h1 {
 }
 
 .search-form button {
-  background-color: #ff6f61; /* Couleur du bouton */
+  background-color: #ff6f61;
   color: white;
   border: none;
   padding: 12px 20px;
@@ -72,15 +90,11 @@ header h1 {
 }
 
 .search-form button:hover {
-  background-color: #ff3d32; /* Changer la couleur au survol */
+  background-color: #ff3d32;
 }
 
 .search-form input::placeholder {
   color: #aaa; /* Couleur du texte du placeholder */
-}
-
-.search-form button i {
-  margin-left: 10px;
 }
 
 /* Navigation */
@@ -107,6 +121,10 @@ header nav ul li a:hover {
 }
 
 /* Section Héro */
+span {
+  color: #ff5722;
+}
+
 #hero {
   background-position: center;
   color: #333;
@@ -141,9 +159,10 @@ header nav ul li a:hover {
 }
 
 /* Section des Recettes */
+
 #recettes {
   padding: 60px 0;
-  background-color: #fff;
+  background-color: #fff; /*fond de la section recettes API */
 }
 
 #recettes h2 {
@@ -167,7 +186,7 @@ header nav ul li a:hover {
 
 /* Modification de la carte de recette pour y inclure le bouton en bas */
 .recette {
-  background-color: #fff;
+  background-color: #333;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   border-radius: 10px;
   overflow: hidden;
@@ -189,7 +208,7 @@ header nav ul li a:hover {
 /* Titre de la recette */
 .recette h3 {
   font-size: 22px;
-  color: #333;
+  color: #fff;
   padding: 15px;
   height: 60px; /* Hauteur fixe pour les titres */
   overflow: hidden;
@@ -224,6 +243,43 @@ header nav ul li a:hover {
 
 .etoile.active {
   color: #ff6f61; /* Couleur dorée pour l'étoile active */
+}
+
+.avis-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.number-of-reviews {
+  margin-right: 10px; /* Espacement entre le texte des avis et le bouton */
+}
+
+.like-btn {
+  background-color: #ff6f61 !important;
+  border-radius: 50% !important;
+  width: 40px !important;
+  height: 40px !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 !important;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.like-btn:hover {
+  background-color: #ff4081; /* Changer la couleur de fond au survol */
+  transform: scale(1.1); /* Agrandir légèrement le bouton au survol */
+}
+
+.like-btn ion-icon {
+  font-size: 20px; /* Taille de l'icône à l'intérieur du bouton */
+  color: white; /* Couleur de l'icône initialement rose */
+}
+
+.like-btn:hover ion-icon {
+  font-size: 25px;
 }
 
 /* Bouton Voir la recette */
@@ -261,6 +317,44 @@ footer p {
   font-size: 14px;
 }
 
+a {
+  color: white;
+}
+
+a:hover {
+  color: #ff6f61;
+}
+
+#icones ion-icon {
+  font-size: 5rem;
+  padding: 10px;
+}
+
+#icones ion-icon:hover {
+  transform: scale(1.2); /* Agrandir les icônes au survol */
+  color: #ff6f61;
+}
+
+.scroll-to-top-btn {
+  position: fixed; /* Rendre le bouton fixe */
+  bottom: 30px; /* Placer à 30px du bas */
+  right: 30px; /* Placer à 30px de la droite */
+  background-color: #ff6f61;
+  color: white;
+  border: none;
+  border-radius: 50%; /* Rond */
+  width: 50px;
+  height: 50px;
+  font-size: 24px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  z-index: 1000; /* Assure-toi qu'il est au-dessus des autres éléments */
+}
+
+.scroll-to-top-btn:hover {
+  background-color: #ff5722; /* Changer la couleur au survol */
+}
+
 .menu-button,
 .menu-drawer {
   display: none;
@@ -269,6 +363,33 @@ footer p {
 /* Par défaut, on affiche la navigation */
 nav {
   display: block; /* Assurez-vous que le menu est affiché sur les grands écrans */
+}
+
+/* Media query pour les écrans plus petits que 1000px */
+@media (max-width: 1000px) {
+  /* Déplacer la barre de recherche sous le titre */
+  header .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .search-form {
+    flex-direction: column; /* Changer la direction pour empiler les éléments */
+    align-items: center; /* Centrer les éléments */
+    margin-top: 20px; /* Ajouter un peu de marge en haut */
+    width: 100%; /* Ajouter une largeur max */
+  }
+
+  #search-input {
+    width: 100%; /* La barre de recherche prend toute la largeur disponible */
+    margin-bottom: 10px; /* Ajouter un petit espace entre l'input et le bouton */
+  }
+
+  #search-btn {
+    display: block; /* Afficher le bouton en dessous du champ de recherche */
+    width: 100%; /* Faire en sorte que le bouton prenne toute la largeur disponible */
+  }
 }
 
 /* Masquer la navigation sur les petits écrans (max-width: 768px) */
@@ -382,221 +503,4 @@ nav {
   #hero button {
     font-size: 16px;
   }
-
-  .search-form {
-    width: 100%; /* La barre de recherche devient plus large sur mobile */
-  }
-}
-
-.scroll-to-top-btn {
-  position: fixed; /* Rendre le bouton fixe */
-  bottom: 30px; /* Placer à 30px du bas */
-  right: 30px; /* Placer à 30px de la droite */
-  background-color: #ff6f61;
-  color: white;
-  border: none;
-  border-radius: 50%; /* Rond */
-  width: 50px;
-  height: 50px;
-  font-size: 24px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-  z-index: 1000; /* Assure-toi qu'il est au-dessus des autres éléments */
-}
-
-.scroll-to-top-btn:hover {
-  background-color: #ff5722; /* Changer la couleur au survol */
-}
-
-span {
-  color: #ff5722;
-}
-
-a {
-  color: white;
-}
-
-a:hover {
-  color: #ff6f61;
-}
-
-#icones ion-icon {
-  font-size: 5rem;
-  padding: 10px;
-}
-
-#icones ion-icon:hover {
-  transform: scale(1.2); /* Agrandir les icônes au survol */
-  color: #ff6f61;
-}
-
-.avis-container {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.number-of-reviews {
-  margin-right: 10px; /* Espacement entre le texte des avis et le bouton */
-}
-
-.like-btn {
-  background-color: #ff6f61 !important;
-  border-radius: 50% !important;
-  width: 40px !important;
-  height: 40px !important;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 0 !important;
-  cursor: pointer;
-  transition: background-color 0.3s, transform 0.3s;
-}
-
-.like-btn:hover {
-  background-color: #ff4081; /* Changer la couleur de fond au survol */
-  transform: scale(1.1); /* Agrandir légèrement le bouton au survol */
-}
-
-.like-btn ion-icon {
-  font-size: 20px; /* Taille de l'icône à l'intérieur du bouton */
-  color: white; /* Couleur de l'icône initialement rose */
-}
-
-.like-btn:hover ion-icon {
-  font-size: 25px;
-}
-
-h1 {
-  text-align: center;
-  font-size: 48px;
-  color: #ff6f61;
-  margin-bottom: 40px;
-}
-
-h2 {
-  text-align: center;
-  font-size: 36px;
-  color: #333;
-  margin-bottom: 40px;
-}
-
-/* Centrer la section contenant les ingrédients et les détails */
-section {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding: 20px;
-}
-
-/* Style commun pour les conteneurs d'ingrédients et de détails de la recette */
-#ingredients-list,
-#recipe-details-container {
-  width: 100%;
-  max-width: 800px;
-  padding: 20px;
-  background-color: white;
-  border-radius: 8px;
-  margin: 10px 0;
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-/* Espacement supplémentaire entre les éléments */
-#ingredients-list {
-  margin-bottom: 40px;
-}
-
-/* Ajouter un trait à côté du titre */
-#ingredients-title,
-#preparation-title {
-  border: 1px solid #ccc;
-  margin: 20px 0;
-}
-
-/* Style des ingrédients */
-#ingredients-list ul {
-  list-style-type: none;
-  padding: 0;
-}
-
-#ingredients-list li {
-  margin: 10px 0;
-}
-
-#ingredients-list input[type="checkbox"] {
-  margin-right: 10px;
-}
-
-/* Style des titres */
-h1,
-h2,
-h3 {
-  color: #333;
-}
-
-.title {
-  color: white;
-}
-
-/* Style des images */
-#recipe-details-container img {
-  max-width: 100%;
-  height: auto;
-  border-radius: 8px;
-  margin: 10px 0;
-}
-
-/* Style des ingrédients */
-#ingredients-list ul {
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
-}
-
-#ingredients-list li {
-  display: flex; /* Utilisation de flexbox pour aligner horizontalement */
-  align-items: center; /* Aligner les éléments verticalement */
-  margin: 10px 0;
-}
-
-#ingredients-list input[type="checkbox"] {
-  margin-right: 10px; /* Espacement entre la case à cocher et le label */
-  transform: scale(2); /* Agrandir légèrement les cases à cocher */
-  cursor: pointer; /* Curseur pointer pour l'interaction */
-  width: 25px; /* Taille personnalisée en largeur */
-  height: 25px; /* Taille personnalisée en hauteur */
-}
-
-#ingredients-list label {
-  font-size: 28px; /* Taille de la police du label */
-  color: #333; /* Couleur du texte */
-  cursor: pointer; /* Curseur pointer pour le label */
-}
-
-/* Style des boutons de partage */
-.share-btn {
-  color: #ff6f61; /* Couleur de texte par défaut */
-  text-decoration: none;
-  font-weight: bold;
-  padding: 10px 15px;
-
-  border-radius: 50px;
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  transition: all 0.3s ease;
-}
-
-/* Effet au survol (hover) */
-.share-btn:hover {
-  color: #333; /* Couleur du texte au survol */
-  border-color: #333; /* Couleur de la bordure au survol */
-  background-color: #ff6f61; /* Fond coloré au survol */
-}
-
-/* Ajout d'un effet visuel pour les icônes */
-.share-btn ion-icon {
-  font-size: 1.2em;
 }
