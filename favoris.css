@@ -304,3 +304,11 @@ ol {
     width: 100%;
   }
 }
+
+@media (max-width: 1000px) {
+
+  #recipes-list {
+  grid-template-columns: repeat(2, 1fr); 
+  }
+
+}
