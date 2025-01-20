@@ -104,14 +104,15 @@
 }
 
 /* Conteneur des recettes publiées */
+/* Conteneur des recettes publiées */
 #recipes-list {
- 
   display: grid;
   grid-template-columns: repeat(3, 1fr); /* 3 colonnes de largeur égale */
-  gap: 30px; 
+  gap: 30px;
   justify-content: start; /* Alignement des éléments au début de la grille */
   grid-template-rows: auto; /* Hauteur des lignes auto-ajustée */
   width: 80%; /* Utiliser toute la largeur disponible */
+  margin: 20px auto; /* Marge extérieure pour espacer du bord, centrer le conteneur horizontalement */
 }
 
 
@@ -119,7 +120,7 @@
 .recipe {
   border: 1px solid #ddd;
   border-radius: 8px;
-  margin-bottom: 20px;
+  margin: 30px; 
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -135,7 +136,7 @@
 }
 
 .recipe h3 {
-  font-size: 1.5rem;
+  font-size: 2rem;
   color: #333;
   margin-bottom: 15px;
   text-align: center;
@@ -160,19 +161,16 @@
 /* Étapes sous forme de liste avec un espacement et un alignement propre */
 .recipe ol li {
   display: flex;
-  align-items: center;
+  align-items: flex-start; /* Aligner les éléments au début pour éviter les débordements */
   margin-bottom: 15px; /* Espacement entre chaque étape */
-}
-
-/* Étapes de préparation */
-ol {
-  padding-left: 0; /* Enlever le padding par défaut pour avoir un alignement propre */
+  overflow: hidden; /* Masquer tout débordement */
   list-style-type: none; /* Enlever les puces ou les numéros par défaut */
-
 }
 
 .step-number {
-  display: inline-block;
+  display: inline-flex; /* Utiliser flex pour le numéro */
+  justify-content: center; /* Centrer le texte */
+  align-items: center; /* Centrer le texte verticalement */
   width: 30px; /* Largeur du cercle */
   height: 30px; /* Hauteur du cercle */
   background-color: #ff6f61; /* Couleur de fond */
@@ -181,15 +179,9 @@ ol {
   line-height: 30px; /* Centrer le texte verticalement */
   font-weight: bold; /* Texte en gras pour le numéro */
   margin-right: 10px; /* Espacement avec le texte de l'étape */
-  flex-shrink: 0; 
+  flex-shrink: 0; /* Empêcher l'élément de se réduire */
 }
 
-/* Pour aligner les étapes à gauche */
-.step ol {
-  padding-left: 0; /* Supprimer l'indentation de la liste */
-  list-style-type: none; /* Supprimer le style de la liste par défaut */
-
-}
 
 /* Liste des ingrédients */
 #ingredients-list {
@@ -208,6 +200,12 @@ ol {
   width: 20px; /* Taille de la checkbox */
   height: 20px; /* Taille de la checkbox */
   cursor: pointer; /* Curseur de souris pour indiquer que la checkbox est cliquable */
+}
+
+/* Effet de barrer l'ingrédient lorsque la case est cochée */
+.ingredient-item input[type="checkbox"]:checked + label {
+  text-decoration: line-through; /* Barrer le texte */
+  color: #bbb; /* Optionnel : changer la couleur du texte barré pour un effet plus clair */
 }
 
 .ingredient-item input[type="text"],
