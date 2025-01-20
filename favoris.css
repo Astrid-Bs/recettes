@@ -72,13 +72,6 @@
   margin-top: 10px; /* Espacement entre les boutons */
 }
 
-/* Bouton "Publier" */
-#publishBtn {
-  width: 80%; /* Centrer le bouton et le rendre plus large */
-  max-width: 600px;
-  margin-top: 10px;
-}
-
 /* Bouton "Publier une Recette" */
 #publishBtn {
   background-color: #ff6f61;
@@ -91,24 +84,16 @@
   transition: background-color 0.3s ease;
   width: 80px; /* Taille fixe du bouton */
   height: 80px; /* Taille fixe du bouton */
+  max-width: 600px;
+  margin-top: 10px;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 20px;
-  align-self: center; /* Centrer horizontalement */
+  margin-bottom: 60px; /* Enlever la marge top pour qu'il soit aligné avec le titre */
 }
 
 #publishBtn:hover {
   background-color: #ff3d32;
-}
-
-#publishBtn .plus-icon {
-  font-size: 36px; /* Taille du "+" */
-}
-
-/* Si vous souhaitez ajouter un effet d'agrandissement au survol */
-#publishBtn:hover .plus-icon {
-  transform: scale(1.2);
 }
 
 /* Conteneur pour aligner le titre et le bouton */
@@ -119,29 +104,172 @@
   gap: 20px; /* Espace entre le titre et le bouton */
 }
 
-/* Bouton "Publier" */
-#publishBtn {
+/* Conteneur des recettes publiées */
+#recipes-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  padding: 20px;
+}
+
+/* Style de base pour chaque recette */
+.recipe {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #fff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease-in-out;
+  width: 100%;
+  max-width: 300px; /* Limite la taille des cartes */
+}
+
+.recipe:hover {
+  transform: scale(1.02);
+}
+
+.recipe h3 {
+  font-size: 1.5rem;
+  color: #333;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.recipe p {
+  font-size: 1rem;
+  color: #666;
+  text-align: center;
+  margin-bottom: 20px;
+  line-height: 1.6;
+  min-height: 60px; /* Donne un peu d'espace pour les descriptions courtes */
+}
+
+/* Étapes sous forme de liste avec un espacement et un alignement propre */
+.recipe ol li {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px; /* Espacement entre chaque étape */
+}
+
+/* Étapes de préparation */
+ol {
+  padding-left: 0; /* Enlever le padding par défaut pour avoir un alignement propre */
+  list-style-type: none; /* Enlever les puces ou les numéros par défaut */
+
+}
+
+.step-number {
+  display: inline-block;
+  width: 30px; /* Largeur du cercle */
+  height: 30px; /* Hauteur du cercle */
+  background-color: #ff6f61; /* Couleur de fond */
+  color: white; /* Couleur du texte */
+  border-radius: 50%; /* Pour rendre l'élément rond */
+  line-height: 30px; /* Centrer le texte verticalement */
+  font-weight: bold; /* Texte en gras pour le numéro */
+  margin-right: 10px; /* Espacement avec le texte de l'étape */
+}
+
+
+/* Pour aligner les étapes à gauche */
+.step ol {
+  padding-left: 0; /* Supprimer l'indentation de la liste */
+  list-style-type: none; /* Supprimer le style de la liste par défaut */
+
+}
+
+/* Liste des ingrédients */
+#ingredients-list {
+  list-style-type: none; /* Enlever la puce par défaut */
+  padding: 0;
+}
+
+.ingredient-item {
+  display: flex; /* Disposition en ligne des éléments */
+  align-items: center; /* Centrer verticalement */
+  margin-bottom: 10px; /* Espacement entre les éléments */
+}
+
+.ingredient-item input[type="checkbox"] {
+  margin-right: 10px; /* Espacement entre la checkbox et le texte */
+  width: 20px; /* Taille de la checkbox */
+  height: 20px; /* Taille de la checkbox */
+  cursor: pointer; /* Curseur de souris pour indiquer que la checkbox est cliquable */
+}
+
+.ingredient-item input[type="text"],
+.ingredient-item input[type="number"],
+.ingredient-item select {
+  padding: 8px;
+  margin-right: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+  width: 200px; /* Largeur plus large pour les champs de saisie */
+}
+
+.ingredient-item button.remove-ingredient-btn {
   background-color: #ff6f61;
   color: white;
-  font-size: 24px;
-  padding: 12px 20px;
   border: none;
-  border-radius: 50%;
+  padding: 6px 12px;
+  border-radius: 5px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
-  width: 80px; /* Taille fixe du bouton */
-  height: 80px; /* Taille fixe du bouton */
+  font-size: 14px;
+}
+
+.ingredient-item button.remove-ingredient-btn:hover {
+  background-color: #e74c3c;
+}
+
+
+/* Étapes dans le formulaire */
+#steps-container .step {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 60px; /* Enlever la marge top pour qu'il soit aligné avec le titre */
+  flex-direction: column;
+  gap: 10px; /* Espace entre le label et le textarea */
+  margin-bottom: 20px;
 }
 
-/* Effet de survol du bouton "Publier" */
-#publishBtn:hover {
-  background-color: #ff3d32;
+#steps-container .step label {
+  font-size: 16px;
+  font-weight: bold;
+  color: #333;
 }
 
-#publishBtn .plus-icon {
-  font-size: 36px; /* Taille du "+" */
+#steps-container .step textarea {
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  width: 100%;
+  max-width: 600px;
 }
+
+
+
+.step-number {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  background-color: #ff6f61;
+  color: white;
+  border-radius: 50%;
+  line-height: 30px;
+  font-weight: bold;
+  margin-right: 10px; /* Espacement entre le numéro et le texte */
+}
+
+.step-content {
+  display: inline-block;
+  font-size: 16px;
+  color: #333;
+  line-height: 1.6;
+  padding-left: 10px;
+}
+

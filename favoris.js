@@ -134,7 +134,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const newStepDiv = document.createElement('div');
     newStepDiv.classList.add('step');
     newStepDiv.innerHTML = `
-        <label for="step${stepCount}">Étape ${stepCount}:</label><br>
+        <label for="step${stepCount}">Étape  ${stepCount}:</label><br>
         <textarea id="step${stepCount}" name="step${stepCount}" rows="4" required></textarea><br><br>
     `;
     stepsContainer.appendChild(newStepDiv);
@@ -170,17 +170,23 @@ document.addEventListener('DOMContentLoaded', function () {
     // Créer une nouvelle recette à afficher
     const recipeHtml = `
         <div class="recipe">
-            <h3>${recipeName}</h3>
-            <ul>
-                ${ingredients.map(ingredient => `<li>${ingredient}</li>`).join('')}
+          <h3>${recipeName}</h3>
+          <ul>
+            ${ingredients.map(ingredient => `
+              <li class="ingredient-item">
+                  <!-- Ajouter la checkbox pour chaque ingrédient -->
+                  <input type="checkbox" id="checkbox-${ingredient}" class="ingredient-checkbox">
+                  <label for="checkbox-${ingredient}">${ingredient}</label>
+              </li>
+              `).join('')}
             </ul>
             <h4>Étapes</h4>
             <ol>
                 ${steps.map(step => `
-                    <li>
-                        <span class="step-number">${step.num}</span>
-                        <span class="step-content">${step.text}</span>
-                    </li>
+                  <li>
+                      <span class="step-number">${step.num}</span>
+                      <span class="step-content">${step.text}</span>
+                  </li>
                 `).join('')}
             </ol>
         </div>
@@ -192,7 +198,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Réinitialiser le formulaire et cacher le formulaire
     recipeForm.reset();
-    stepsContainer.innerHTML = '<h3>Instructions</h3><div class="step"><label for="step1">Étape 1:</label><br><textarea id="step1" name="step1" rows="4" required></textarea><br><br></div>';
+    stepsContainer.innerHTML = '<h3>Instructions</h3><div class="step"><label for="step1">Étape 1 </label><br><textarea id="step1" name="step1" rows="4" required></textarea><br><br></div>';
     formContainer.style.display = 'none';
     stepCount = 1; // Réinitialiser le compteur d'étapes
     ingredientCount = 1; // Réinitialiser le compteur d'ingrédients

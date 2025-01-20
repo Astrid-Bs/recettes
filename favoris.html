@@ -48,13 +48,16 @@
         <ul class="flex flex-col justify-end gap-y-8 items-end font-outfit font-light">
           <li
             class="flex text-lg hover:text-special-secondary hover:dark:text-d-special-secondary transition duration-200 easy-in-out">
-            <a href="index.html">Accueil</a></li>
+            <a href="index.html">Accueil</a>
+          </li>
           <li
             class="flex text-lg hover:text-special-secondary hover:dark:text-d-special-secondary transition duration-200 easy-in-out">
-            <a href="favoris.html">Favoris</a></li>
+            <a href="favoris.html">Favoris</a>
+          </li>
           <li
             class="flex text-lg hover:text-special-secondary hover:dark:text-d-special-secondary transition duration-200 easy-in-out">
-            <a href="#contact">Contact</a></li>
+            <a href="#contact">Contact</a>
+          </li>
         </ul>
       </div>
 
@@ -68,6 +71,14 @@
       <div class="recettes-list" id="favorites-container">
         <!-- Les recettes favorites seront ajoutées ici par JavaScript -->
       </div>
+    </div>
+  </section>
+
+  <!-- Zone où les recettes publiées seront affichées -->
+  <section id="recipes-section">
+    <h2>Recettes publiées </h2>
+    <div id="recipes-list">
+      <!-- Les recettes seront ajoutées ici via JavaScript -->
     </div>
   </section>
 
@@ -105,7 +116,7 @@
 
       <!-- Étapes des instructions -->
       <div id="steps-container">
-        <h3>Préparation</h3>
+        <h2>Préparation</h2>
         <div class="step">
           <label for="step1">Étape 1</label><br>
           <textarea id="step1" name="step1" rows="4" required></textarea><br><br>
@@ -116,12 +127,7 @@
       <button type="submit">Publier</button>
     </form>
   </div>
-
-  <!-- Zone où les recettes publiées seront affichées -->
-  <h2>Recettes publiées :</h2>
-  <div id="recipes-list"></div>
-
-
+  
   <footer id="contact">
     <h1 class="title">Recettes Gourmandes</h1><br>
     <div class="contact-info">
