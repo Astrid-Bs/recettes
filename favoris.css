@@ -1,9 +1,51 @@
+/* Bouton + "Publier/partager une Recette" */
+#publishBtn {
+  background-color: #ff6f61;
+  color: white;
+  font-size: 36px;
+  /* Augmenter la taille du "+"*/
+  padding: 12px 20px;
+  border: none;
+  border-radius: 50%;
+  /* Pour que le bouton soit rond */
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  width: 80px;
+  /* Taille fixe du bouton */
+  height: 80px;
+  /* Taille fixe du bouton */
+  max-width: 600px;
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 60px;
+  /* Enlever la marge top pour qu'il soit aligné avec le titre */
+}
+
+#publishBtn:hover {
+  background-color: #ff3d32;
+}
+
+/* Conteneur pour aligner le titre et le bouton */
+#header-container {
+  display: flex;
+  align-items: center;
+  /* Centrer verticalement */
+  justify-content: center;
+  /* Centrer horizontalement */
+  gap: 20px;
+  /* Espace entre le titre et le bouton */
+}
+
 /* Conteneur du formulaire */
 #form-container {
   display: flex;
   flex-direction: column;
-  align-items: center; /* Centrer les éléments horizontalement */
-  justify-content: center; /* Centrer les éléments verticalement */
+  align-items: center;
+  /* Centrer les éléments horizontalement */
+  justify-content: center;
+  /* Centrer les éléments verticalement */
   text-align: center;
   padding: 30px;
   background-color: #fff;
@@ -53,10 +95,12 @@
   border-radius: 30px;
   cursor: pointer;
   transition: background-color 0.3s ease;
-  width: 80%; /* Centrer les boutons et les rendre plus larges */
+  width: 80%;
+  /* Centrer les boutons et les rendre plus larges */
   max-width: 600px;
   margin-top: 20px;
-  align-self: center; /* Centrer les boutons horizontalement */
+  align-self: center;
+  /* Centrer les boutons horizontalement */
 }
 
 #form-container button:hover {
@@ -66,61 +110,34 @@
 /* Bouton "Ajouter un ingrédient" */
 #addIngredientBtn,
 #addStepBtn {
-  width: 80%; /* Centrer le bouton et le rendre plus large */
-  max-width: 600px;
-  margin-top: 10px; 
-}
-
-/* Bouton "Publier une Recette" */
-#publishBtn {
-  background-color: #ff6f61;
-  color: white;
-  font-size: 36px; /* Augmenter la taille du "+"*/
-  padding: 12px 20px;
-  border: none;
-  border-radius: 50%; /* Pour que le bouton soit rond */
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-  width: 80px; /* Taille fixe du bouton */
-  height: 80px; /* Taille fixe du bouton */
+  width: 80%;
+  /* Centrer le bouton et le rendre plus large */
   max-width: 600px;
   margin-top: 10px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 60px; /* Enlever la marge top pour qu'il soit aligné avec le titre */
 }
 
-#publishBtn:hover {
-  background-color: #ff3d32;
-}
-
-/* Conteneur pour aligner le titre et le bouton */
-#header-container {
-  display: flex;
-  align-items: center; /* Centrer verticalement */
-  justify-content: center; /* Centrer horizontalement */
-  gap: 20px; /* Espace entre le titre et le bouton */
-}
-
-/* Conteneur des recettes publiées */
+/* RECETTES PUBLIÉES */
 /* Conteneur des recettes publiées */
 #recipes-list {
   display: grid;
-  grid-template-columns: repeat(3, 1fr); /* 3 colonnes de largeur égale */
+  grid-template-columns: repeat(3, 1fr);
+  /* 3 colonnes de largeur égale */
   gap: 30px;
-  justify-content: start; /* Alignement des éléments au début de la grille */
-  grid-template-rows: auto; /* Hauteur des lignes auto-ajustée */
-  width: 80%; /* Utiliser toute la largeur disponible */
-  margin: 20px auto; /* Marge extérieure pour espacer du bord, centrer le conteneur horizontalement */
+  justify-content: start;
+  /* Alignement des éléments au début de la grille */
+  grid-template-rows: auto;
+  /* Hauteur des lignes auto-ajustée */
+  width: 80%;
+  /* Utiliser toute la largeur disponible */
+  margin: 20px auto;
+  /* Marge extérieure pour espacer du bord, centrer le conteneur horizontalement */
 }
-
 
 /* Style de base pour chaque recette */
 .recipe {
   border: 1px solid #ddd;
   border-radius: 8px;
-  margin: 30px; 
+  margin: 30px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -128,7 +145,8 @@
   box-shadow: 0 4px 5px rgba(0, 0, 0, 0.1);
   transition: transform 0.2s ease-in-out;
   width: 100%;
-  max-width: 350px; /* Limite la taille des cartes */
+  max-width: 350px;
+  /* Limite la taille des cartes */
 }
 
 .recipe:hover {
@@ -148,64 +166,83 @@
   text-align: center;
   margin-bottom: 20px;
   line-height: 1.6;
-  min-height: 60px; /* Donne un peu d'espace pour les descriptions courtes */
+  min-height: 60px;
+  /* Donne un peu d'espace pour les descriptions courtes */
 }
 
 .recipe img {
-  max-width: 100%;  
-  height: auto;   
-  object-fit: cover;  /* Permet à l'image de couvrir le conteneur tout en gardant ses proportions */
-  margin-bottom: 15px; 
+  max-width: 100%;
+  height: auto;
+  object-fit: cover;
+  /* Permet à l'image de couvrir le conteneur tout en gardant ses proportions */
+  margin-bottom: 15px;
 }
 
 /* Étapes sous forme de liste avec un espacement et un alignement propre */
 .recipe ol li {
   display: flex;
-  align-items: flex-start; /* Aligner les éléments au début pour éviter les débordements */
-  margin-bottom: 15px; /* Espacement entre chaque étape */
-  overflow: hidden; /* Masquer tout débordement */
-  list-style-type: none; /* Enlever les puces ou les numéros par défaut */
+  align-items: flex-start;
+  /* Aligner les éléments au début pour éviter les débordements */
+  margin-bottom: 15px;
+  /* Espacement entre chaque étape */
+  overflow: hidden;
+  /* Masquer tout débordement */
+  list-style-type: none;
+  /* Enlever les puces ou les numéros par défaut */
 }
 
 .step-number {
-  display: inline-flex; /* Utiliser flex pour le numéro */
-  justify-content: center; /* Centrer le texte */
-  align-items: center; /* Centrer le texte verticalement */
-  width: 30px; /* Largeur du cercle */
-  height: 30px; /* Hauteur du cercle */
-  background-color: #ff6f61; /* Couleur de fond */
-  color: white; /* Couleur du texte */
-  border-radius: 50%; /* Pour rendre l'élément rond */
-  line-height: 30px; /* Centrer le texte verticalement */
-  font-weight: bold; /* Texte en gras pour le numéro */
-  margin-right: 10px; /* Espacement avec le texte de l'étape */
-  flex-shrink: 0; /* Empêcher l'élément de se réduire */
+  display: inline-flex;
+  /* Utiliser flex pour le numéro */
+  justify-content: center;
+  /* Centrer le texte */
+  align-items: center;
+  /* Centrer le texte verticalement */
+  width: 30px;
+  height: 30px;
+  background-color: #ff6f61;
+  color: white;
+  border-radius: 50%;
+  /* Pour rendre l'élément rond */
+  line-height: 30px;
+  /* Centrer le texte verticalement */
+  font-weight: bold;
+  /* Texte en gras pour le numéro */
+  margin-right: 10px;
+  /* Espacement avec le texte de l'étape */
+  flex-shrink: 0;
+  /* Empêcher l'élément de se réduire */
 }
-
 
 /* Liste des ingrédients */
 #ingredients-list {
-  list-style-type: none; /* Enlever la puce par défaut */
+  list-style-type: none;
+  /* Enlever la puce par défaut */
   padding: 0;
 }
 
 .ingredient-item {
-  display: flex; /* Disposition en ligne des éléments */
-  align-items: center; /* Centrer verticalement */
-  margin-bottom: 10px; /* Espacement entre les éléments */
+  display: flex;
+  /* Disposition en ligne des éléments */
+  align-items: center;
+  /* Centrer verticalement */
+  margin-bottom: 10px;
+  /* Espacement entre les éléments */
 }
 
 .ingredient-item input[type="checkbox"] {
-  margin-right: 10px; /* Espacement entre la checkbox et le texte */
-  width: 20px; /* Taille de la checkbox */
-  height: 20px; /* Taille de la checkbox */
-  cursor: pointer; /* Curseur de souris pour indiquer que la checkbox est cliquable */
+  margin-right: 10px;
+  /* Espacement entre la checkbox et le texte */
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  /* Curseur de souris pour indiquer que la checkbox est cliquable */
 }
 
 /* Effet de barrer l'ingrédient lorsque la case est cochée */
-.ingredient-item input[type="checkbox"]:checked + label {
-  text-decoration: line-through; /* Barrer le texte */
-  color: #bbb; /* Optionnel : changer la couleur du texte barré pour un effet plus clair */
+.ingredient-item input[type="checkbox"]:checked+label {
+  text-decoration: line-through;
+  color: #bbb;
 }
 
 .ingredient-item input[type="text"],
@@ -216,7 +253,8 @@
   border-radius: 5px;
   border: 1px solid #ccc;
   font-size: 14px;
-  width: 200px; /* Largeur plus large pour les champs de saisie */
+  width: 200px;
+  /* Largeur plus large pour les champs de saisie */
 }
 
 .ingredient-item button.remove-ingredient-btn {
@@ -233,12 +271,12 @@
   background-color: #e74c3c;
 }
 
-
 /* Étapes dans le formulaire */
 #steps-container .step {
   display: flex;
   flex-direction: column;
-  gap: 10px; /* Espace entre le label et le textarea */
+  gap: 10px;
+  /* Espace entre le label et le textarea */
   margin-bottom: 20px;
 }
 
@@ -267,34 +305,37 @@
 
 /* Responsive: ajuster la disposition sur les petits écrans */
 @media (max-width: 768px) {
-
   #recipes-list {
-    display: flex; /* Utiliser flexbox au lieu de grid sur les petits écrans */
-    flex-wrap: wrap; /* Permettre le passage à la ligne si nécessaire */
-    justify-content: center; /* Centrer les éléments horizontalement */
-    gap: 20px; /* Espacement entre les cartes */
+    display: flex;
+    flex-wrap: wrap;
+    /* Permettre le passage à la ligne si nécessaire */
+    justify-content: center;
+    /* Centrer les éléments horizontalement */
+    gap: 20px;
     width: 80%;
   }
 
   .recipe img {
-    width: 100%; /* L'image prendra toute la largeur disponible même sur les très petits écrans */
-    max-width: 100%; /* Toujours limiter à la largeur du conteneur */
+    width: 100%;
+    /* L'image prendra toute la largeur disponible même sur les très petits écrans */
+    max-width: 100%;
+    /* Toujours limiter à la largeur du conteneur */
   }
 
-   /* Modifier l'affichage des ingrédients en colonne */
-   .ingredient-item {
+  /* Modifier l'affichage des ingrédients en colonne */
+  .ingredient-item {
     display: flex;
-    flex-direction: column; /* Disposer les éléments en colonne */
-    align-items: flex-start; /* Aligner à gauche */
-    gap: 10px; /* Espacement entre les éléments */
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
   }
 
   /* Réduire la largeur des champs pour mieux s'adapter */
   .ingredient-item input[type="text"],
   .ingredient-item input[type="number"],
   .ingredient-item select {
-    width: 100%; /* Largeur complète pour chaque champ */
-    margin-right: 0; /* Enlever la marge droite */
+    width: 100%;
+    margin-right: 0;
   }
 
   /* Bouton supprimer prend toute la largeur disponible */
@@ -304,9 +345,7 @@
 }
 
 @media (max-width: 1000px) {
-
   #recipes-list {
-  grid-template-columns: repeat(2, 1fr); 
+    grid-template-columns: repeat(2, 1fr);
   }
-
 }

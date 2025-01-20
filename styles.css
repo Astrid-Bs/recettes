@@ -56,23 +56,29 @@ header h1 {
 .search-form {
   display: flex;
   align-items: center;
-  border-radius: 30px; /* Coins arrondis pour le form */
-  overflow: hidden; /* Masque les coins non arrondis */
-  width: 500px; /* Largeur du formulaire de recherche */
+  border-radius: 30px;
+  /* Coins arrondis pour le form */
+  overflow: hidden;
+  /* Masque les coins non arrondis */
+  width: 500px;
+  /* Largeur du formulaire de recherche */
 }
 
 .search-form input {
   border: none;
   padding: 12px 20px;
-  width: 100%; /* Le champ de recherche prend 100% de la largeur */
+  width: 100%;
+  /* Le champ de recherche prend 100% de la largeur */
   font-size: 16px;
-  border-radius: 30px 0 0 30px; /* Coins arrondis à gauche */
+  border-radius: 30px 0 0 30px;
+  /* Coins arrondis à gauche */
   outline: none;
   transition: background-color 0.3s ease;
 }
 
 .search-form input:focus {
-  background-color: #fff8e1; /* Change la couleur de fond au focus */
+  background-color: #fff8e1;
+  /* Change la couleur de fond au focus */
 }
 
 .search-form button {
@@ -82,7 +88,8 @@ header h1 {
   padding: 12px 20px;
   font-size: 16px;
   cursor: pointer;
-  border-radius: 0 30px 30px 0; /* Coins arrondis à droite */
+  border-radius: 0 30px 30px 0;
+  /* Coins arrondis à droite */
   transition: background-color 0.3s;
   display: flex;
   align-items: center;
@@ -94,7 +101,8 @@ header h1 {
 }
 
 .search-form input::placeholder {
-  color: #aaa; /* Couleur du texte du placeholder */
+  color: #aaa;
+  /* Couleur du texte du placeholder */
 }
 
 /* Navigation */
@@ -162,7 +170,8 @@ span {
 
 #recettes {
   padding: 60px 0;
-  background-color: #fff; /*fond de la section recettes API */
+  background-color: #fff;
+  /*fond de la section recettes API */
 }
 
 #recettes h2 {
@@ -192,10 +201,13 @@ span {
   overflow: hidden;
   width: 30%;
   display: flex;
-  flex-direction: column; /* Organiser les éléments verticalement */
+  flex-direction: column;
+  /* Organiser les éléments verticalement */
   transition: transform 0.3s, box-shadow 0.3s;
-  height: 400px; /* Fixe la hauteur pour toutes les recettes */
-  margin-bottom: 20px; /* Espacement entre les cartes */
+  height: 400px;
+  /* Fixe la hauteur pour toutes les recettes */
+  margin-bottom: 20px;
+  /* Espacement entre les cartes */
 }
 
 /* Image de la recette */
@@ -210,7 +222,8 @@ span {
   font-size: 22px;
   color: #fff;
   padding: 15px;
-  height: 60px; /* Hauteur fixe pour les titres */
+  height: 60px;
+  /* Hauteur fixe pour les titres */
   overflow: hidden;
   text-overflow: ellipsis;
 }
@@ -221,9 +234,12 @@ span {
   color: #777;
   padding: 0 15px;
   margin-bottom: 20px;
-  flex-grow: 1; /* Permet de pousser le bouton vers le bas si la description est longue */
-  height: 60px; /* Hauteur fixe pour la description */
-  display: none; /* Masque la description par défaut */
+  flex-grow: 1;
+  /* Permet de pousser le bouton vers le bas si la description est longue */
+  height: 60px;
+  /* Hauteur fixe pour la description */
+  display: none;
+  /* Masque la description par défaut */
 }
 
 /* Styling des étoiles pour les rendre plus modernes */
@@ -236,13 +252,16 @@ span {
 
 .etoile {
   font-size: 2rem;
-  color: #ccc; /* Couleur par défaut pour les étoiles */
+  color: #ccc;
+  /* Couleur par défaut pour les étoiles */
   cursor: pointer;
-  transition: color 0.3s ease; /* Transition fluide pour l'effet hover */
+  transition: color 0.3s ease;
+  /* Transition fluide pour l'effet hover */
 }
 
 .etoile.active {
-  color: #ff6f61; /* Couleur dorée pour l'étoile active */
+  color: #ff6f61;
+  /* Couleur pour l'étoile active */
 }
 
 .avis-container {
@@ -252,7 +271,8 @@ span {
 }
 
 .number-of-reviews {
-  margin-right: 10px; /* Espacement entre le texte des avis et le bouton */
+  margin-right: 10px;
+  /* Espacement entre le texte des avis et le bouton */
 }
 
 .like-btn {
@@ -269,13 +289,15 @@ span {
 }
 
 .like-btn:hover {
-  background-color: #ff4081; /* Changer la couleur de fond au survol */
-  transform: scale(1.1); /* Agrandir légèrement le bouton au survol */
+  background-color: #ff4081;
+  transform: scale(1.1);
+  /* Agrandir légèrement le bouton au survol */
 }
 
 .like-btn ion-icon {
-  font-size: 20px; /* Taille de l'icône à l'intérieur du bouton */
-  color: white; /* Couleur de l'icône initialement rose */
+  font-size: 20px;
+  /* Taille de l'icône à l'intérieur du bouton */
+  color: white;
 }
 
 .like-btn:hover ion-icon {
@@ -292,7 +314,8 @@ span {
   cursor: pointer;
   border-radius: 0 0 10px 10px;
   transition: background-color 0.3s;
-  margin-top: auto; /* Pousse le bouton en bas de la carte */
+  margin-top: auto;
+  /* Pousse le bouton en bas de la carte */
 }
 
 .recette button:hover {
@@ -331,28 +354,35 @@ a:hover {
 }
 
 #icones ion-icon:hover {
-  transform: scale(1.2); /* Agrandir les icônes au survol */
+  transform: scale(1.2);
+  /* Agrandir les icônes au survol */
   color: #ff6f61;
 }
 
 .scroll-to-top-btn {
-  position: fixed; /* Rendre le bouton fixe */
-  bottom: 30px; /* Placer à 30px du bas */
-  right: 30px; /* Placer à 30px de la droite */
+  position: fixed;
+  /* Rendre le bouton fixe */
+  bottom: 30px;
+  /* Placer à 30px du bas */
+  right: 30px;
+  /* Placer à 30px de la droite */
   background-color: #ff6f61;
   color: white;
   border: none;
-  border-radius: 50%; /* Rond */
+  border-radius: 50%;
+  /* Rond */
   width: 50px;
   height: 50px;
   font-size: 24px;
   cursor: pointer;
   transition: background-color 0.3s ease;
-  z-index: 1000; /* Assure-toi qu'il est au-dessus des autres éléments */
+  z-index: 1000;
+  /* Placer au-dessus des autres éléments */
 }
 
 .scroll-to-top-btn:hover {
-  background-color: #ff5722; /* Changer la couleur au survol */
+  background-color: #ff5722;
+  /* Changer la couleur au survol */
 }
 
 .menu-button,
@@ -362,11 +392,12 @@ a:hover {
 
 /* Par défaut, on affiche la navigation */
 nav {
-  display: block; /* Assurez-vous que le menu est affiché sur les grands écrans */
+  display: block;
 }
 
 /* Media query pour les écrans plus petits que 1000px */
 @media (max-width: 1000px) {
+
   /* Déplacer la barre de recherche sous le titre */
   header .container {
     display: flex;
@@ -375,27 +406,36 @@ nav {
   }
 
   .search-form {
-    flex-direction: column; /* Changer la direction pour empiler les éléments */
-    align-items: center; /* Centrer les éléments */
-    margin-top: 20px; /* Ajouter un peu de marge en haut */
-    width: 100%; /* Ajouter une largeur max */
+    flex-direction: column;
+    /* Changer la direction pour empiler les éléments */
+    align-items: center;
+    /* Centrer les éléments */
+    margin-top: 20px;
+    /* Ajouter un peu de marge en haut */
+    width: 100%;
+    /* Ajouter une largeur max */
   }
 
   #search-input {
-    width: 100%; /* La barre de recherche prend toute la largeur disponible */
-    margin-bottom: 10px; /* Ajouter un petit espace entre l'input et le bouton */
+    width: 100%;
+    /* La barre de recherche prend toute la largeur disponible */
+    margin-bottom: 10px;
+    /* Ajouter un petit espace entre l'input et le bouton */
   }
 
   #search-btn {
-    display: block; /* Afficher le bouton en dessous du champ de recherche */
-    width: 100%; /* Faire en sorte que le bouton prenne toute la largeur disponible */
+    display: block;
+    /* Afficher le bouton en dessous du champ de recherche */
+    width: 100%;
+    /* Faire en sorte que le bouton prenne toute la largeur disponible */
   }
 }
 
 /* Masquer la navigation sur les petits écrans (max-width: 768px) */
 @media (max-width: 768px) {
   nav {
-    display: none; /* Masque la navigation pour les écrans mobiles */
+    display: none;
+    /* Masque la navigation pour les écrans mobiles */
   }
 
   /* Menu Button (hamburger) */
@@ -404,8 +444,10 @@ nav {
     width: 30px;
     height: 20px;
     cursor: pointer;
-    z-index: 1001; /* Assurez-vous que le bouton est au-dessus des autres éléments */
-    display: block; /* Affiche le bouton menu pour les petits écrans */
+    z-index: 1001;
+    /* Place le bouton au-dessus des autres éléments */
+    display: block;
+    /* Affiche le bouton menu pour les petits écrans */
   }
 
   .menu-line {
@@ -428,7 +470,6 @@ nav {
     top: 16px;
   }
 
-  /* Menu Drawer */
   .menu-drawer {
     display: flex;
     justify-content: center;
@@ -438,11 +479,13 @@ nav {
     top: 0;
     right: 0;
     height: 100%;
-    width: 300px; /* Largeur du menu */
+    width: 50%;
     transform: translateX(100%);
     transition: transform 0.3s ease;
-    z-index: 1000; /* Assurez-vous que le menu est au-dessus des autres éléments */
-    display: block; /* Affiche le menu pour les petits écrans */
+    z-index: 1000;
+    /* Place le  menu  au-dessus des autres éléments */
+    display: block;
+    /* Affiche le menu pour les petits écrans */
   }
 
   .menu-drawer.active {
