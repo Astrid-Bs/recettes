@@ -105,29 +105,30 @@
 
 /* Conteneur des recettes publiées */
 #recipes-list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  justify-content: center;
-  padding: 20px;
+ 
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 colonnes de largeur égale */
+  gap: 30px; 
+  justify-content: start; /* Alignement des éléments au début de la grille */
+  grid-template-rows: auto; /* Hauteur des lignes auto-ajustée */
+  width: 80%; /* Utiliser toute la largeur disponible */
 }
+
 
 /* Style de base pour chaque recette */
 .recipe {
   border: 1px solid #ddd;
   border-radius: 8px;
   margin-bottom: 20px;
-  padding: 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
   background-color: #fff;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 5px rgba(0, 0, 0, 0.1);
   transition: transform 0.2s ease-in-out;
   width: 100%;
-  max-width: 300px; /* Limite la taille des cartes */
+  max-width: 350px; /* Limite la taille des cartes */
 }
-
 
 .recipe:hover {
   transform: scale(1.02);
@@ -152,7 +153,6 @@
 .recipe img {
   max-width: 100%;  
   height: auto;   
-  border-radius: 8px; 
   object-fit: cover;  /* Permet à l'image de couvrir le conteneur tout en gardant ses proportions */
   margin-bottom: 15px; 
 }
@@ -181,8 +181,8 @@ ol {
   line-height: 30px; /* Centrer le texte verticalement */
   font-weight: bold; /* Texte en gras pour le numéro */
   margin-right: 10px; /* Espacement avec le texte de l'étape */
+  flex-shrink: 0; 
 }
-
 
 /* Pour aligner les étapes à gauche */
 .step ol {
@@ -259,20 +259,6 @@ ol {
   max-width: 600px;
 }
 
-
-
-.step-number {
-  display: inline-block;
-  width: 30px;
-  height: 30px;
-  background-color: #ff6f61;
-  color: white;
-  border-radius: 50%;
-  line-height: 30px;
-  font-weight: bold;
-  margin-right: 10px; /* Espacement entre le numéro et le texte */
-}
-
 .step-content {
   display: inline-block;
   font-size: 16px;
@@ -281,3 +267,40 @@ ol {
   padding-left: 10px;
 }
 
+/* Responsive: ajuster la disposition sur les petits écrans */
+@media (max-width: 768px) {
+
+  #recipes-list {
+    display: flex; /* Utiliser flexbox au lieu de grid sur les petits écrans */
+    flex-wrap: wrap; /* Permettre le passage à la ligne si nécessaire */
+    justify-content: center; /* Centrer les éléments horizontalement */
+    gap: 20px; /* Espacement entre les cartes */
+    width: 80%;
+  }
+
+  .recipe img {
+    width: 100%; /* L'image prendra toute la largeur disponible même sur les très petits écrans */
+    max-width: 100%; /* Toujours limiter à la largeur du conteneur */
+  }
+
+   /* Modifier l'affichage des ingrédients en colonne */
+   .ingredient-item {
+    display: flex;
+    flex-direction: column; /* Disposer les éléments en colonne */
+    align-items: flex-start; /* Aligner à gauche */
+    gap: 10px; /* Espacement entre les éléments */
+  }
+
+  /* Réduire la largeur des champs pour mieux s'adapter */
+  .ingredient-item input[type="text"],
+  .ingredient-item input[type="number"],
+  .ingredient-item select {
+    width: 100%; /* Largeur complète pour chaque champ */
+    margin-right: 0; /* Enlever la marge droite */
+  }
+
+  /* Bouton supprimer prend toute la largeur disponible */
+  .ingredient-item button.remove-ingredient-btn {
+    width: 100%;
+  }
+}
