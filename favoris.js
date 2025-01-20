@@ -142,26 +142,40 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // Lors de la soumission du formulaire
   recipeForm.addEventListener('submit', function (event) {
-    event.preventDefault();
+    event.preventDefault(); // Empêcher la soumission normale du formulaire
+    console.log("Formulaire soumis");
 
     // Récupérer les valeurs du formulaire
     const recipeName = document.getElementById('recipeName').value;
+    console.log("Nom de la recette:", recipeName);
 
     // Récupérer l'image
     const imageFile = document.getElementById('recipeImage').files[0];
     const imageUrl = imageFile ? URL.createObjectURL(imageFile) : ''; // Si une image est sélectionnée, créer une URL temporaire
+    console.log("URL de l'image:", imageUrl);
 
 
     // Récupérer les ingrédients
     const ingredients = [];
     for (let i = 1; i <= ingredientCount; i++) {
-      const ingredientName = document.getElementById(`ingredient${i}`).value;
-      const quantity = document.getElementById(`quantity${i}`).value;
-      const unit = document.getElementById(`unit${i}`).value;
-      if (ingredientName && quantity && unit) {
-        ingredients.push(`${ingredientName} - ${quantity} ${unit}`);
+      const ingredientNameElem = document.getElementById(`ingredient${i}`);
+      const quantityElem = document.getElementById(`quantity${i}`);
+      const unitElem = document.getElementById(`unit${i}`);
+      // Vérifier que les éléments existent avant de récupérer leur valeur
+      if (ingredientNameElem && quantityElem && unitElem) {
+        const ingredientName = ingredientNameElem.value;
+        const quantity = quantityElem.value;
+        const unit = unitElem.value;
+
+        if (ingredientName && quantity && unit) {
+          ingredients.push(`${ingredientName} - ${quantity} ${unit}`);
+        }
+      } else {
+        console.warn(`Ingrédient ${i} manquant dans le DOM.`);
       }
     }
+    
+    console.log("Ingrédients récupérés :", ingredients);
 
     // Récupérer les étapes
     const steps = [];
@@ -171,6 +185,7 @@ document.addEventListener('DOMContentLoaded', function () {
         steps.push({ num: i, text: stepText });
       }
     }
+    console.log("Étapes:", steps);
 
     // Créer une nouvelle recette à afficher
     const recipeHtml = `
@@ -200,6 +215,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Ajouter la recette à la liste
     recipesList.innerHTML += recipeHtml;
+    console.log("Recette ajoutée à la liste");
 
     // Réinitialiser le formulaire et cacher le formulaire
     recipeForm.reset();
