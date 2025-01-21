@@ -167,7 +167,6 @@ span {
 }
 
 /* Section des Recettes */
-
 #recettes {
   padding: 60px 0;
   background-color: #fff;
@@ -328,7 +327,6 @@ span {
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
-/* Footer */
 footer {
   background-color: #333;
   color: white;
@@ -382,7 +380,6 @@ a:hover {
 
 .scroll-to-top-btn:hover {
   background-color: #ff5722;
-  /* Changer la couleur au survol */
 }
 
 .menu-button,

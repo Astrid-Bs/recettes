@@ -174,7 +174,7 @@ document.addEventListener('DOMContentLoaded', function () {
         console.warn(`Ingrédient ${i} manquant dans le DOM.`);
       }
     }
-    
+
     console.log("Ingrédients récupérés :", ingredients);
 
     // Récupérer les étapes
