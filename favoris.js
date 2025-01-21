@@ -91,6 +91,57 @@ document.addEventListener('DOMContentLoaded', function () {
   let stepCount = 1;
   let ingredientCount = 1;
 
+  // Fonction pour sauvegarder une recette dans le localStorage
+  function saveRecipe(recipe) {
+    // Récupérer les recettes existantes dans localStorage ou créer un tableau vide si aucune recette n'est encore stockée
+    const recipes = JSON.parse(localStorage.getItem('recipes')) || [];
+
+    // Ajouter la nouvelle recette au tableau
+    recipes.push(recipe);
+
+    // Sauvegarder le tableau des recettes dans localStorage
+    localStorage.setItem('recipes', JSON.stringify(recipes));
+  }
+
+  // Fonction pour charger toutes les recettes depuis le localStorage et les afficher
+  function loadRecipes() {
+    const recipes = JSON.parse(localStorage.getItem('recipes')) || [];
+    recipesList.innerHTML = ''; // Réinitialiser la liste des recettes
+
+    // Afficher chaque recette
+    recipes.forEach(recipe => {
+      const recipeHtml = `
+      <div class="recipe">
+        <h3>${recipe.name}</h3>
+        ${recipe.imageUrl ? `<img src="${recipe.imageUrl}" alt="${recipe.name}" class="recipe-image">` : ''}
+        <ul>
+          ${recipe.ingredients.map(ingredient => `
+            <li class="ingredient-item">
+              <input type="checkbox" id="checkbox-${ingredient}" class="ingredient-checkbox">
+              <label for="checkbox-${ingredient}">${ingredient}</label>
+            </li>
+          `).join('')}
+        </ul>
+        <h4>Étapes</h4>
+        <ol>
+          ${recipe.steps.map(step => `
+            <li>
+              <span class="step-number">${step.num}</span>
+              <span class="step-content">${step.text}</span>
+            </li>
+          `).join('')}
+        </ol>
+      </div>
+    `;
+      recipesList.innerHTML += recipeHtml;
+    });
+
+    
+  }
+
+  // Charger les recettes au chargement de la page
+  window.addEventListener('load', loadRecipes);
+
   // Lorsque le bouton "Publier une Recette" est cliqué
   publishBtn.addEventListener('click', function () {
     alert("Veuillez remplir votre recette !");
@@ -112,9 +163,10 @@ document.addEventListener('DOMContentLoaded', function () {
             <option value="kg">kg</option>
             <option value="ml">ml</option>
             <option value="L">L</option>
+            <option value=".">.</option>
             <option value="tasse">tasse</option>
-            <option value="cuillère à soupe">cuillère à soupe</option>
-            <option value="cuillère à café">cuillère à café</option>
+            <option value="cuillère à soupe">cuillère(s) à soupe</option>
+            <option value="cuillère à café">cuillère(s) à café</option>
         </select>
         <button type="button" class="remove-ingredient-btn">Supprimer</button>
     `;
@@ -187,35 +239,19 @@ document.addEventListener('DOMContentLoaded', function () {
     }
     console.log("Étapes:", steps);
 
-    // Créer une nouvelle recette à afficher
-    const recipeHtml = `
-        <div class="recipe">
-          <h3>${recipeName}</h3>
-         ${imageUrl ? `<img src="${imageUrl}" alt="${recipeName}" class="recipe-image">` : ''}
-          <ul>
-            ${ingredients.map(ingredient => `
-              <li class="ingredient-item">
-                <!-- Ajouter la checkbox pour chaque ingrédient -->
-                <input type="checkbox" id="checkbox-${ingredient}" class="ingredient-checkbox">
-                <label for="checkbox-${ingredient}">${ingredient}</label>
-              </li>
-            `).join('')}
-          </ul>
-          <h4>Étapes</h4>
-          <ol>
-            ${steps.map(step => `
-              <li>
-                <span class="step-number">${step.num}</span>
-                <span class="step-content">${step.text}</span>
-              </li>
-            `).join('')}
-          </ol>
-        </div>
-    `;
+    // Créer la recette
+    const recipe = {
+      name: recipeName,
+      imageUrl: imageUrl,
+      ingredients: ingredients,
+      steps: steps
+    };
 
-    // Ajouter la recette à la liste
-    recipesList.innerHTML += recipeHtml;
-    console.log("Recette ajoutée à la liste");
+    // Sauvegarder la recette dans le localStorage
+    saveRecipe(recipe);
+
+    // Ajouter la recette à la liste affichée
+    loadRecipes();
 
     // Réinitialiser le formulaire et cacher le formulaire
     recipeForm.reset();
