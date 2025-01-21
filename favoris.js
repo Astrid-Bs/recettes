@@ -131,12 +131,27 @@ document.addEventListener('DOMContentLoaded', function () {
             </li>
           `).join('')}
         </ol>
+            <button class="delete-btn" data-id="${recipe.name}">Supprimer</button>
       </div>
     `;
       recipesList.innerHTML += recipeHtml;
     });
 
-    
+    // Ajouter l'événement de suppression à chaque bouton
+    document.querySelectorAll('.delete-btn').forEach(button => {
+      button.addEventListener('click', function () {
+        const recipeId = this.getAttribute('data-id');
+        deletePublishedRecipe(recipeId);
+      });
+    });
+  }
+
+  // Fonction pour supprimer une recette publiée
+  function deletePublishedRecipe(id) {
+    const recipes = JSON.parse(localStorage.getItem('recipes')) || [];
+    const updatedRecipes = recipes.filter(recipe => recipe.name !== id); // Filtrer les recettes
+    localStorage.setItem('recipes', JSON.stringify(updatedRecipes)); // Mettre à jour localStorage
+    loadRecipes(); // Recharger les recettes après suppression
   }
 
   // Charger les recettes au chargement de la page

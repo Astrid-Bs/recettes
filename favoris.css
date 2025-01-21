@@ -214,6 +214,43 @@
   /* Empêcher l'élément de se réduire */
 }
 
+/* Style général pour les boutons */
+button {
+  cursor: pointer;
+  padding: 10px 15px;
+  border: none;
+  outline: none;
+  border-radius: 3px;
+  /* Coins légèrement arrondis */
+  font-size: 14px;
+  font-family: Arial, sans-serif;
+  /* Police simple et lisible */
+  transition: background-color 0.2s ease, transform 0.2s ease;
+  background-color: transparent;
+  /* Fond transparent */
+  color: #333;
+  /* Couleur de texte neutre */
+}
+
+/* Style pour le bouton Supprimer de la recette publiée*/
+button.delete-btn {
+  color: #fff;
+  background-color: #ff6f61;
+  border-radius: 30px;
+  font-weight: 500;
+  /* Poids de police plus léger */
+  padding: 8px 15px;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+button.delete-btn:hover {
+  color: #333;
+  background-color: #ff3d32;
+  text-decoration: line-through;
+  transform: scale(1.05);
+  /* Agrandissement léger lors du survol */
+}
+
 /* Liste des ingrédients */
 #ingredients-list {
   list-style-type: none;
